@@ -179,3 +179,9 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+
+
+.temp/
+# marimo
+#  Auto-generated notebook session/layout cache. Not Source.
+__ marimo__/
