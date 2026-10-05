@@ -76,6 +76,102 @@ def _():
     return (mo,)
 
 
+@app.cell
+def _():
+    for charge in [10,20,30]:
+        total = 0
+        total = total + charge
+    return (total,)
+
+
+@app.cell
+def _(total):
+    total
+    return
+
+
+@app.cell
+def _():
+    max(["9.5","16.75","22.25"])
+    return
+
+
+@app.cell
+def _():
+    order_lines = ["notebook", "pen"]
+    len(order_lines)
+    return (order_lines,)
+
+
+@app.cell
+def _(order_lines):
+    order_lines.extend(["stapler", "tape"])
+    return
+
+
+@app.cell
+def _(order_lines):
+    order_lines
+    return
+
+
+@app.cell
+def _(names):
+    names['Ana','Pam','Kevin','Zhi Li']
+    for name in names: 
+        name= name.title()
+    
+        print(names)
+    
+    return
+
+
+@app.cell
+def _():
+    s1 = 'Hi'
+    S2 = 'Hi\n'
+    s3 = 'Hi\t!'
+    return S2, s1, s3
+
+
+@app.cell
+def _(s1):
+    print(s1)
+    return
+
+
+@app.cell
+def _(S2):
+    print(S2)
+    return
+
+
+@app.cell
+def _(s3):
+    print(s3)
+    return
+
+
+@app.cell
+def _(S2, s1, s3):
+    len(s1), len(S2), len(s3)
+    return
+
+
+app._unparsable_cell(
+    r"""
+    charges [10,20,30]:
+    """,
+    name="_"
+)
+
+
+@app.cell
+def _(Sum, charges):
+    Sum(charges)
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -365,7 +461,7 @@ def _():
     order_lines = ["notebook", "pen"]
     order_lines.append(["stapler", "tape"])
     len(order_lines)
-    return
+    return (order_lines,)
 
 
 @app.cell(hide_code=True)
@@ -598,7 +694,7 @@ def _():
     {"OrderID": 11019, "CustomerID": "RANCH", "ShipCountry": "Argentina", "ShipCity": "Buenos Aires", "OrderDate": "2018-04-13", "ShippedDate": None, "Freight": 11.25},
     {"OrderID": 11039, "CustomerID": "LINOD", "ShipCountry": "Venezuela", "ShipCity": "I. de Margarita", "OrderDate": "2018-04-21", "ShippedDate": None, "Freight": 43.00},
     ]
-    len(orders)
+    len(orders), type(orders), type(orders[0])
     return (orders,)
 
 
@@ -637,6 +733,27 @@ def _(mo):
     **Going further.** Look at the three orders with no `ShippedDate`. What do they have
     in common that the other 27 do not? The answer is not about shipping.
     """)
+    return
+
+
+@app.cell
+def _(orders):
+    len(orders)
+    return
+
+
+@app.cell
+def _(orders):
+    total_freight = 0
+    for order in orders:
+        total_freight += order["Freight"]
+
+        print(total_freight)
+    return
+
+
+@app.cell
+def _():
     return
 
 

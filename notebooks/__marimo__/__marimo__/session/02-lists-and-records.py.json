@@ -8,8 +8,232 @@
     {
       "id": "Hbol",
       "code_hash": "1d0db38904205bec4d6f6f6a1f6cec3e",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
       "console": []
+    },
+    {
+      "id": "XpIS",
+      "code_hash": "9f0a378cf748d16c0f6576df36d16be6",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "cgYk",
+      "code_hash": "fbb44b4487415b134bce9c790a27fe5e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>30</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "OOpQ",
+      "code_hash": "e8f2ec1a3a47a5c9e28f1c8f1aead2f5",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>&#x27;9.5&#x27;</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "FFbd",
+      "code_hash": "c0a43b1928fd6ad7e03d824171df3f13",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>2</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "FApg",
+      "code_hash": "d270c59d66f8535941ec8038d7922491",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ZSnp",
+      "code_hash": "6e8cec88787ffe31d9c9e819f1491661",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[\"notebook\", \"pen\", [\"stapler\", \"tape\"], \"stapler\", \"tape\", \"stapler\", \"tape\"]"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "BoFW",
+      "code_hash": "6a41b4bd560533c14a26bbc1ed9005c3",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "name 'names' is not defined",
+          "traceback": null
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">\"/var/folders/sz/2k6dljw126nb_hh6cbx4d8vr0000gn/T/marimo_41564/__marimo__cell_BoFW_.py\"</span>, line <span class=\"m\">1</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"n\">names</span><span class=\"p\">[</span><span class=\"s1\">'Ana'</span><span class=\"p\">,</span><span class=\"s1\">'Pam'</span><span class=\"p\">,</span><span class=\"s1\">'Kevin'</span><span class=\"p\">,</span><span class=\"s1\">'Zhi Li'</span><span class=\"p\">]</span>\n<span class=\"w\">    </span><span class=\"pm\">^^^^^</span>\n<span class=\"gr\">NameError</span>: <span class=\"n\">name 'names' is not defined</span>\n</pre></div>\n</span>",
+          "mimetype": "application/vnd.marimo+traceback"
+        }
+      ]
+    },
+    {
+      "id": "VZiw",
+      "code_hash": "8384ca78c91fc0cb00f6c72e5ebddaae",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "QoLF",
+      "code_hash": "ceedfe4be813806bc4bfbc7bfbb76f65",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Hi\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "rEVv",
+      "code_hash": "6778d3554ae90dfba5b3adae569554ec",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Hi\n\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "Ctsr",
+      "code_hash": "77e6f295b88c704bf5aa24f10f3df16d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Hi\t!\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "doCM",
+      "code_hash": "d9e52fafbb9f4798f063151c5480bed9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[2, 3, 4]"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ZUuW",
+      "code_hash": "5619356878e6184d33da2181c1cd6e5f",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "syntax",
+          "evalue": "line 1\n    charges [10,20,30]:\n                       ^\nSyntaxError: invalid syntax\n",
+          "traceback": []
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ATgP",
+      "code_hash": "483f6251615deafe074fda1ef5e883a6",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "name 'Sum' is not defined. Did you mean: 'sum'?",
+          "traceback": null
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">\"/var/folders/sz/2k6dljw126nb_hh6cbx4d8vr0000gn/T/marimo_41564/__marimo__cell_ATgP_.py\"</span>, line <span class=\"m\">1</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"n\">Sum</span><span class=\"p\">(</span><span class=\"n\">charges</span><span class=\"p\">)</span>\n<span class=\"w\">    </span><span class=\"pm\">^^^</span>\n<span class=\"gr\">NameError</span>: <span class=\"n\">name 'Sum' is not defined. Did you mean: 'sum'?</span>\n</pre></div>\n</span>",
+          "mimetype": "application/vnd.marimo+traceback"
+        }
+      ]
     },
     {
       "id": "MJUe",
@@ -40,13 +264,34 @@
     {
       "id": "bkHC",
       "code_hash": "419fb1f631a65e62ca0ebdf59dcd9eda",
-      "outputs": [],
-      "console": []
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "the total cost\n",
+          "mimetype": "text/plain"
+        }
+      ]
     },
     {
       "id": "lEQa",
       "code_hash": "115cdc766461e63d887742e99ed47a5d",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -65,20 +310,48 @@
     {
       "id": "Xref",
       "code_hash": "41b677e5a767bdc6d8289670f64a4304",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>16.75</pre>"
+          }
+        }
+      ],
       "console": []
     },
     {
       "id": "SFPL",
       "code_hash": "efc656077a3e2ebeaa7723ca4ff21678",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>36.25</pre>"
+          }
+        }
+      ],
       "console": []
     },
     {
       "id": "BYtC",
       "code_hash": "c33d04356fed101f03103b3a587b36ee",
-      "outputs": [],
-      "console": []
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "list index out of range",
+          "traceback": null
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">\"/var/folders/sz/2k6dljw126nb_hh6cbx4d8vr0000gn/T/marimo_41564/__marimo__cell_BYtC_.py\"</span>, line <span class=\"m\">1</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"n\">charges</span><span class=\"p\">[</span><span class=\"mi\">5</span><span class=\"p\">]</span>\n<span class=\"w\">    </span><span class=\"pm\">~~~~~~~^^^</span>\n<span class=\"gr\">IndexError</span>: <span class=\"n\">list index out of range</span>\n</pre></div>\n</span>",
+          "mimetype": "application/vnd.marimo+traceback"
+        }
+      ]
     },
     {
       "id": "RGSE",
@@ -96,7 +369,14 @@
     {
       "id": "Kclp",
       "code_hash": "3162e71c11ea9d96662b50a13fe21705",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[\"text/plain+float:16.75\", \"text/plain+float:22.25\", \"text/plain+float:25.0\", \"text/plain+float:20.25\", \"text/plain+float:36.25\"]"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -141,8 +421,22 @@
     {
       "id": "iLit",
       "code_hash": "dc0cf7ab380db59842116577d44768e7",
-      "outputs": [],
-      "console": []
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Pass\n",
+          "mimetype": "text/plain"
+        }
+      ]
     },
     {
       "id": "ZHCJ",
@@ -160,7 +454,14 @@
     {
       "id": "ROlb",
       "code_hash": "413f573172b95d2cba69850b5e98a1e1",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[\"shipped\", \"pending\", \"shipped\", \"cancelled\", \"shipped\"]"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -179,7 +480,14 @@
     {
       "id": "TqIu",
       "code_hash": "d7f1e30a273b00c372f58d2c77801a99",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "multiple-defs",
+          "evalue": "The variable 'order_lines' was defined by another cell",
+          "traceback": []
+        }
+      ],
       "console": []
     },
     {
@@ -198,8 +506,22 @@
     {
       "id": "DnEU",
       "code_hash": "01a8d5269858a498482cb962fade9d87",
-      "outputs": [],
-      "console": []
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[\"AAPL\", \"MSFT\", \"NVDA\"]"
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "['AAPL', 'MSFT', 'NVDA']\nNone\n",
+          "mimetype": "text/plain"
+        }
+      ]
     },
     {
       "id": "ulZA",
@@ -217,7 +539,14 @@
     {
       "id": "ecfG",
       "code_hash": "8d95c8f244caaf7e1606caf938476e98",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[\"text/plain+float:12.5\", \"text/plain+float:8.0\", \"text/plain+float:19.99\", \"text/plain+float:4.99\"]"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -249,8 +578,22 @@
     {
       "id": "aLJB",
       "code_hash": "e22c9fe5df8633ecd9c695b5510cb87f",
-      "outputs": [],
-      "console": []
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "10050\n150\n",
+          "mimetype": "text/plain"
+        }
+      ]
     },
     {
       "id": "nHfw",
@@ -281,7 +624,14 @@
     {
       "id": "AjVT",
       "code_hash": "53f7fdf6f5abd48e8964538bd017999e",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "{\"OrderID\": 10248, \"CustomerID\": \"VINET\", \"ShipCountry\": \"France\", \"ShipCity\": \"Reims\", \"OrderDate\": \"2016-07-04\", \"ShippedDate\": \"2016-07-16\", \"Freight\": \"text/plain+float:16.75\"}"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -300,7 +650,14 @@
     {
       "id": "NCOB",
       "code_hash": "332446c7b3958fd46ca5386ebac32217",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>&#x27;France&#x27;</pre>"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -331,8 +688,15 @@
     },
     {
       "id": "TXez",
-      "code_hash": "2e78ba09148c2840a0ce57701f538f5b",
-      "outputs": [],
+      "code_hash": "cef2f0e8d1e9f89cdbb06c49f428f6d0",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[30, \"text/plain:<class 'list'>\", \"text/plain:<class 'dict'>\"]"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -351,7 +715,14 @@
     {
       "id": "yCnT",
       "code_hash": "56ae7cf264083e0936598623c21b783a",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>&#x27;France&#x27;</pre>"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -362,6 +733,52 @@
           "type": "data",
           "data": {
             "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"the-orders-table\">\u270f\ufe0f The Orders Table</h2>\n<span class=\"paragraph\">Each question is one of the moves from section 2, done to records.</span>\n<ol>\n<li>What is the <strong>total freight</strong> across all 30 orders?</li>\n<li>How many orders have <strong>no <code>ShippedDate</code></strong>? That field holds <code>None</code> for them, and\n   <code>if order[\"ShippedDate\"] is None:</code> is how you ask.</li>\n<li>Which order has the <strong>largest</strong> freight, and what is it?</li>\n</ol>\n<span class=\"paragraph\"><strong>Check yourself:</strong> 827.00 \u00b7 3 \u00b7 order 10263 at 56.00.</span>\n<span class=\"paragraph\">Then ask your agent, and ask which concepts its answer used.</span>\n<span class=\"paragraph\"><strong>Going further.</strong> Look at the three orders with no <code>ShippedDate</code>. What do they have\nin common that the other 27 do not? The answer is not about shipping.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "eGHg",
+      "code_hash": "dcdb5686d152ccc2cbdedf160299d54e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>30</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Cedr",
+      "code_hash": "cd8dfa84a0b9c043918c332857b98e2d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "16.75\n39.0\n64.0\n84.25\n120.5\n156.0\n180.25\n217.75\n234.5\n256.0\n296.25\n309.0\n344.5\n364.5\n381.75\n437.75\n462.75\n485.25\n498.25\n542.0\n555.5\n585.5\n609.25\n625.25\n652.75\n700.75\n717.5\n772.75\n784.0\n827.0\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "EusJ",
+      "code_hash": null,
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
           }
         }
       ],
@@ -409,7 +826,14 @@
     {
       "id": "dGlV",
       "code_hash": "ee04f5dc9b3e474ede5f3f883c3aa33e",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[{\"Symbol\": \"AAPL\", \"Shares\": 100, \"Price\": \"text/plain+float:173.93\"}, {\"Symbol\": \"MSFT\", \"Shares\": 50, \"Price\": \"text/plain+float:319.53\"}, {\"Symbol\": \"GOOG\", \"Shares\": 80, \"Price\": \"text/plain+float:131.36\"}, {\"Symbol\": \"AMZN\", \"Shares\": 200, \"Price\": \"text/plain+float:129.33\"}, {\"Symbol\": \"NVDA\", \"Shares\": 20, \"Price\": \"text/plain+float:410.17\"}, {\"Symbol\": \"TSLA\", \"Shares\": 150, \"Price\": \"text/plain+float:255.7\"}]"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -428,7 +852,14 @@
     {
       "id": "lgWD",
       "code_hash": "84a6141f626588f299934afdd739184b",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>&#x27;/Users/AJBlonder/Desktop/OIM2026fall/oim7510/notebooks/data/portfolio.csv&#x27;</pre>"
+          }
+        }
+      ],
       "console": []
     },
     {
