@@ -65,8 +65,15 @@
     },
     {
       "id": "PKri",
-      "code_hash": "f64b104eb97a99d02e8df2c449cba4fa",
-      "outputs": [],
+      "code_hash": "e2e3ad095061c16bc066cf6f121c99db",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
       "console": []
     },
     {

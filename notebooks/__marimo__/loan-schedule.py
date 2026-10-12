@@ -9,7 +9,7 @@
 
 import marimo
 
-__generated_with = "0.24.2"
+__generated_with = "0.25.1"
 app = marimo.App(width="medium", sql_output="polars")
 
 
@@ -69,11 +69,10 @@ def _(mo):
 def _():
     plan = [
         "Step 1: The inputs are a $400000 loan and two rates - 0.0703 over 30 years and 0.0642% over 15 years."
-        "step 2: "
-        "step 3: "
-        "step 4: "
-        "step 5: "
-    
+        "step 2: Convert each annual rate to a monthly rate by dividing by 12, and set n to the number of months (years times 12) - 360 months for 30 year laon and 180 months for the 15-year loan. "
+        "step 3: Before looping, I compute one fixed monthly payment per loan using loan_amount * r / (1 - (1+r)**-n), rounded to the cent. "
+        "step 4: For each month from 1 to n, I calculate that month's interest as the current balance times r, rounded to the cent, then principal paid as payment minus interest, and reduce the balance by that principal."
+        "step 5: I repeat step 4 for every month using range(1, n+1); on the last month I adjust the payment so the balance lands at exactly $0.00, then sum the interest column to get total interest for each loan and write one sentence comparing the 30-year and 15-year totals. "
     ]
     return
 
