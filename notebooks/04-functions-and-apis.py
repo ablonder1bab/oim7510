@@ -328,6 +328,37 @@ def _(mo):
     return
 
 
+@app.cell
+def _(requests):
+    wellesley_lookup = requests.get(
+        "https://oim.zhili.dev/ma/towns",
+        params={"name": "Wellesley"},
+        timeout=10,
+    )
+    wellesley_dor_code = wellesley_lookup.json()["items"][0]["dor_code"]
+    wellesley_dor_code
+    return (wellesley_dor_code,)
+
+
+@app.cell
+def _(requests, wellesley_dor_code):
+    wellesley_history_reply = requests.get(
+        f"https://oim.zhili.dev/ma/towns/{wellesley_dor_code}/history",
+        params={"from_year": 2026, "to_year": 2026},
+        timeout=10,
+    )
+    wellesley_history_reply.status_code, wellesley_history_reply.json()
+    return (wellesley_history_reply,)
+
+
+@app.cell
+def _(wellesley_history_reply):
+    wellesley_2026 = wellesley_history_reply.json()["years"][0]
+    computed_bill = wellesley_2026["average_single_family_value_dollars"] * wellesley_2026["residential_rate_per_thousand"] / 1000
+    computed_bill, wellesley_2026["average_single_family_bill_dollars"]
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -409,6 +440,46 @@ def _(mo):
     return
 
 
+@app.cell
+def _(get_page):
+    def get_all_towns():
+        first_page = get_page(1)
+        all_towns = first_page["items"]
+        pages = first_page["pagination"]["pages"]
+        for page in range(2, pages + 1):
+            next_page = get_page(page)
+            all_towns = all_towns + next_page["items"]
+        return all_towns
+
+    return (get_all_towns,)
+
+
+@app.cell
+def _(get_all_towns):
+    all_towns = get_all_towns()
+    len(all_towns), all_towns[0]["name"], all_towns[-1]["name"]
+    return (all_towns,)
+
+
+@app.cell
+def _(all_towns):
+    highest_bill = None
+    highest_name = None
+    lowest_bill = None
+    lowest_name = None
+    for town in all_towns:
+        bill = town["average_single_family_bill_dollars"]
+        if highest_bill is None or bill > highest_bill:
+            highest_bill = bill
+            highest_name = town["name"]
+        if lowest_bill is None or bill < lowest_bill:
+            lowest_bill = bill
+            lowest_name = town["name"]
+
+    highest_name, highest_bill, lowest_name, lowest_bill
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -459,15 +530,33 @@ def _(mo):
 
 
 @app.cell
+def _():
+    return
+
+
+@app.cell
+def _(requests):
+    town_lookup = requests.get(
+        "https://oim.zhili.dev/ma/towns",
+        params={"name": "Wellesley"},
+        timeout=10,
+    )
+    town_record = town_lookup.json()["items"][0]
+    town_name = town_record["name"]
+    town_bill = town_record["average_single_family_bill_dollars"]
+    town_name, town_bill
+    return town_bill, town_name
+
+
+@app.cell
 def _(requests, town_bill, town_name):
     board_reply = requests.post(
         "https://oim.zhili.dev/message",
-        headers={"x-token": "<ablonder1bab>"},
+        headers={"x-token": "ablonder1bab"},
         json={"message": f"{town_name}: ${town_bill:,}"},
         timeout=10,
     )
     board_reply.status_code, board_reply.json()
-
     return
 
 
@@ -475,6 +564,14 @@ def _(requests, town_bill, town_name):
 def _(mo):
     mo.md(r"""
     > **Advanced · G · Take it down.** `requests.delete` on the same address, with the same header, removes your line. Run it twice and compare the two replies.
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    'Missing x-token header'
     """)
     return
 

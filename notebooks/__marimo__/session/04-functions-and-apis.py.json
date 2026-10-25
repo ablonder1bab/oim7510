@@ -270,30 +270,23 @@
       "code_hash": "8e41e132c0014809fc7c6d99010a66d6",
       "outputs": [
         {
-          "type": "error",
-          "ename": "exception",
-          "evalue": "No module named 'requests'",
-          "traceback": null
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
         }
       ],
-      "console": [
-        {
-          "type": "stream",
-          "name": "stderr",
-          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">\"/var/folders/sz/2k6dljw126nb_hh6cbx4d8vr0000gn/T/marimo_34910/__marimo__cell_DnEU_.py\"</span>, line <span class=\"m\">1</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"kn\">import</span><span class=\"w\"> </span><span class=\"nn\">requests</span>\n<span class=\"gr\">ModuleNotFoundError</span>: <span class=\"n\">No module named 'requests'</span>\n</pre></div>\n</span>",
-          "mimetype": "application/vnd.marimo+traceback"
-        }
-      ]
+      "console": []
     },
     {
       "id": "ulZA",
       "code_hash": "afdea3774b798b782ef68b655c7e9fad",
       "outputs": [
         {
-          "type": "error",
-          "ename": "exception",
-          "evalue": "An ancestor raised an exception (ModuleNotFoundError): ",
-          "traceback": null
+          "type": "data",
+          "data": {
+            "application/json": "{\"source\": \"Massachusetts Department of Revenue, Division of Local Services, Municipal Databank (https://www.mass.gov/info-details/division-of-local-services-municipal-databank)\", \"endpoints\": {\"/ma/towns\": \"Every town with its latest single-family value and bill, 50 to a page. Query: county, name, max_bill, max_value, sort (name, population, income, value, bill), order (asc, desc), page, per_page\", \"/ma/towns/{dor_code}\": \"One town and its latest finances\", \"/ma/towns/{dor_code}/history\": \"Tax rates and single-family bills by fiscal year. Query: from_year, to_year\", \"/ma/counties\": \"The 14 counties, with their number of towns and population\", \"/ma/votes\": \"Override and underride ballot votes. Query: dor_code, from_year, to_year, page, per_page\"}}"
+          }
         }
       ],
       "console": []
@@ -314,7 +307,14 @@
     {
       "id": "Pvdt",
       "code_hash": "14cde2c50bca4b2639420fbb27ccefe8",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[200, \"https://oim.zhili.dev/ma/towns?county=Norfolk\"]"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -333,7 +333,14 @@
     {
       "id": "aLJB",
       "code_hash": "38507227e42cfbedc8c8954016b16b92",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "{\"page\": 1, \"per_page\": 50, \"total\": 28, \"pages\": 1, \"has_next\": false, \"has_prev\": false}"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -352,7 +359,14 @@
     {
       "id": "xXTn",
       "code_hash": "a71705731d61b6a8136fd49323b520cb",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "{\"dor_code\": \"018\", \"name\": \"Avon\", \"county\": \"Norfolk\", \"type\": \"town\", \"area_square_miles\": \"text/plain+float:5.1\", \"founded_year\": 1888, \"population\": 4801, \"income_per_capita_dollars\": 44742, \"equalized_value_dollars\": 1239903800, \"equalized_value_per_capita_dollars\": 258259, \"data_fiscal_year\": 2027, \"average_single_family_value_dollars\": 572492, \"average_single_family_bill_dollars\": 7643, \"finances_fiscal_year\": 2026}"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -371,13 +385,27 @@
     {
       "id": "pHFh",
       "code_hash": "4109b7e974f26a60556ee3f973cb12d3",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
       "console": []
     },
     {
       "id": "NCOB",
       "code_hash": "887930193010547e7f6c8af54f576e31",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[{\"dor_code\": \"035\", \"name\": \"Boston\", \"county\": \"Suffolk\", \"type\": \"city\", \"area_square_miles\": \"text/plain+float:48.4\", \"founded_year\": 1630, \"population\": 673458, \"income_per_capita_dollars\": 65287, \"equalized_value_dollars\": 241761863000, \"equalized_value_per_capita_dollars\": 358986, \"data_fiscal_year\": 2027, \"average_single_family_value_dollars\": 615084, \"average_single_family_bill_dollars\": 7627, \"finances_fiscal_year\": 2026}, {\"dor_code\": \"057\", \"name\": \"Chelsea\", \"county\": \"Suffolk\", \"type\": \"city\", \"area_square_miles\": \"text/plain+float:2.2\", \"founded_year\": 1739, \"population\": 40245, \"income_per_capita_dollars\": 27806, \"equalized_value_dollars\": 6348238400, \"equalized_value_per_capita_dollars\": 157740, \"data_fiscal_year\": 2027, \"average_single_family_value_dollars\": 367078, \"average_single_family_bill_dollars\": 4214, \"finances_fiscal_year\": 2026}, {\"dor_code\": \"248\", \"name\": \"Revere\", \"county\": \"Suffolk\", \"type\": \"city\", \"area_square_miles\": \"text/plain+float:5.9\", \"founded_year\": 1871, \"population\": 60702, \"income_per_capita_dollars\": 33133, \"equalized_value_dollars\": 12020129000, \"equalized_value_per_capita_dollars\": 198019, \"data_fiscal_year\": 2027, \"average_single_family_value_dollars\": 623461, \"average_single_family_bill_dollars\": 5574, \"finances_fiscal_year\": 2026}, {\"dor_code\": \"346\", \"name\": \"Winthrop\", \"county\": \"Suffolk\", \"type\": \"town\", \"area_square_miles\": \"text/plain+float:2.0\", \"founded_year\": 1852, \"population\": 18739, \"income_per_capita_dollars\": 47434, \"equalized_value_dollars\": 3873447100, \"equalized_value_per_capita_dollars\": 206705, \"data_fiscal_year\": 2027, \"average_single_family_value_dollars\": 744423, \"average_single_family_bill_dollars\": 8293, \"finances_fiscal_year\": 2026}]"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -407,6 +435,45 @@
       "console": []
     },
     {
+      "id": "mSDL",
+      "code_hash": "4016758799c638a666cb0e56b76fadf7",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>&#x27;317&#x27;</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Hdfu",
+      "code_hash": "ad9fa4272bb5174ed153660bd20e9818",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[200, {\"dor_code\": \"317\", \"name\": \"Wellesley\", \"years\": [{\"fiscal_year\": 2026, \"residential_rate_per_thousand\": \"text/plain+float:10.17\", \"commercial_rate_per_thousand\": \"text/plain+float:10.17\", \"single_family_parcels\": 7319, \"average_single_family_value_dollars\": 2020758, \"average_single_family_bill_dollars\": 20551}]}]"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "dbXl",
+      "code_hash": "3efba0fba5ade2bcbed7a1081eb0fc0a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[\"text/plain+float:20551.10886\", 20551]"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
       "id": "TXez",
       "code_hash": "791d5450bb1270c077aadb7767186041",
       "outputs": [
@@ -422,7 +489,14 @@
     {
       "id": "dNNg",
       "code_hash": "a8af7dc0d3029782a8e02b74a19d0330",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[50, {\"page\": 1, \"per_page\": 50, \"total\": 351, \"pages\": 8, \"has_next\": true, \"has_prev\": false}]"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -441,7 +515,14 @@
     {
       "id": "wlCL",
       "code_hash": "c7fc10556c32764f544faf48140c6d25",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[422, {\"detail\": [{\"type\": \"less_than_equal\", \"loc\": [\"query\", \"per_page\"], \"msg\": \"Input should be less than or equal to 100\", \"input\": \"500\", \"ctx\": {\"le\": 100}}]}]"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -460,13 +541,27 @@
     {
       "id": "wAgl",
       "code_hash": "6faf21dd04d541a6216521c2c7181fe4",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
       "console": []
     },
     {
       "id": "rEll",
       "code_hash": "fac3aeaf89e0bdbcc0f9cfba304ef1c5",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "{\"page\": 1, \"per_page\": 100, \"total\": 351, \"pages\": 4, \"has_next\": true, \"has_prev\": false}"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -477,6 +572,45 @@
           "type": "data",
           "data": {
             "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"e-every-town\">\u270f\ufe0f E \u00b7 Every town</h2>\n<span class=\"paragraph\">Write <code>get_all_towns()</code>. It reads page 1, takes <code>pages</code> from its <code>pagination</code>, reads the pages after it with <code>range(2, pages + 1)</code>, and returns one list of every town.</span>\n<span class=\"paragraph\"><em>Check yourself: 351 towns, the same number as <code>pagination[\"total\"]</code>. The first is Abington and the last is Yarmouth.</em></span>\n<span class=\"paragraph\">The count you collected against the total the server reports is a check you can run on any API that sends pages.</span>\n<span class=\"paragraph\"><strong>Going further.</strong> Which town has the highest average single-family tax bill in the state, and which the lowest?</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "mkDp",
+      "code_hash": "1eba6f0089a07ba9b1da5224d62fd6ae",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lRVa",
+      "code_hash": "6dd6bee98ab14b57679dd7af4ccf4b9c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[351, \"Abington\", \"Yarmouth\"]"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "hkEf",
+      "code_hash": "17099f655c868c373ac9d62615a0c034",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[\"Weston\", 26313, \"Hancock\", 835]"
           }
         }
       ],
@@ -522,20 +656,39 @@
       "console": []
     },
     {
-      "id": "WbWh",
-      "code_hash": "5d3bec0d18b53f1ebccf36d253e3fa89",
+      "id": "miac",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Vngx",
+      "code_hash": "1a9b8207afdacff2befc7bf230cb43cc",
       "outputs": [
         {
-          "type": "error",
-          "ename": "exception",
-          "evalue": "An ancestor raised an exception (ModuleNotFoundError): ",
-          "traceback": null
+          "type": "data",
+          "data": {
+            "application/json": "[\"Wellesley\", 20551]"
+          }
         }
       ],
       "console": []
     },
     {
-      "id": "fwwy",
+      "id": "OibF",
+      "code_hash": "c763e773d7d12d3566904ff938f67acd",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[201, {\"author\": \"Ari\", \"message\": \"Wellesley: $20,551\", \"timestamp\": \"2026-10-25T20:14:39.068494+00:00\"}]"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "LJZf",
       "code_hash": "0d706c28f83befd260cc045b42689f83",
       "outputs": [
         {
@@ -548,7 +701,20 @@
       "console": []
     },
     {
-      "id": "LJZf",
+      "id": "PjPN",
+      "code_hash": "900758d6ead078fd5212d38365aa7f13",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">'Missing x-token header'</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "urSm",
       "code_hash": "19549899e0e3b0cbc9e6733515af5a2b",
       "outputs": [
         {
@@ -561,7 +727,7 @@
       "console": []
     },
     {
-      "id": "urSm",
+      "id": "jxvo",
       "code_hash": "84938202538efdb9400af5c614f1d3e7",
       "outputs": [
         {

@@ -754,10 +754,16 @@ def _(requests):
     return (wellesley_reply,)
 
 
-@app.cell
-def _(wellesley_reply):
-    wellesley_reply.status_code, wellesley_reply.json()
-    return
+app._unparsable_cell(
+    r"""
+    wellesley_reply.status_code, wellesley_reply.json()babson_park_reply = requests.get(
+        "https://geocoding-api.open-meteo.com/v1/search?name=Babson+Park",
+        timeout=10,
+    )
+    babson_park_reply.status_code, babson_park_reply.json()
+    """,
+    name="_"
+)
 
 
 @app.cell
