@@ -1,14 +1,21 @@
 {
   "version": "1",
   "metadata": {
-    "marimo_version": "0.24.2",
+    "marimo_version": "0.25.1",
     "script_metadata_hash": "d848f9de174660e41a371f5f58ae3c23"
   },
   "cells": [
     {
       "id": "Hbol",
       "code_hash": "1d0db38904205bec4d6f6f6a1f6cec3e",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -66,7 +73,14 @@
     {
       "id": "PKri",
       "code_hash": "3ec179977eb886c2c66062090edededa",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "{\"Symbol\": \"GOOG\", \"Price\": \"text/plain+float:133.1\", \"Currency\": \"USD\"}"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -85,7 +99,14 @@
     {
       "id": "SFPL",
       "code_hash": "eea132fed27efd6f1db408185f7d665e",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>True</pre>"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -104,7 +125,14 @@
     {
       "id": "RGSE",
       "code_hash": "d36c2544a9da3d7ca41366697fa9ad45",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>0</pre>"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -123,7 +151,14 @@
     {
       "id": "emfo",
       "code_hash": "c6eaa2401b0fa36823b5bb26bdb54aba",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[\"Symbol: GOOG\", \"Price: 133.1\", \"Currency: USD\"]"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -142,7 +177,14 @@
     {
       "id": "nWHF",
       "code_hash": "a098e7088e3366c7409a5de0cd5ca558",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "{\"shipped\": 4, \"pending\": 2, \"cancelled\": 1}"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -161,7 +203,14 @@
     {
       "id": "ZHCJ",
       "code_hash": "b3baada9d1fcfdd58bb210c538eb3881",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "{\"AAPL\": \"text/plain+float:260.81\", \"NVDA\": \"text/plain+float:186.0\", \"MSFT\": \"text/plain+float:404.88\", \"GOOG\": \"text/plain+float:308.42\"}"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -180,7 +229,14 @@
     {
       "id": "qnkX",
       "code_hash": "cf013d266ae6857b91858009b7c8ab48",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>30</pre>"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -199,7 +255,14 @@
     {
       "id": "Vxnm",
       "code_hash": "28bb1887819d424fa39aa23560629d78",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[\"GOOG\", 3]"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -231,7 +294,14 @@
     {
       "id": "ecfG",
       "code_hash": "8cb4b4c9b56148cf5915a10cbe0dd092",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>&#x27;GOOG cost $13,136.00&#x27;</pre>"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -263,7 +333,14 @@
     {
       "id": "aLJB",
       "code_hash": "95a3924e5bdeb1262241b6861ecbb4f2",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[20, 10]"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -282,7 +359,14 @@
     {
       "id": "xXTn",
       "code_hash": "f01f1fda7f571e14bf2a6509ace69186",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>&#x27;Independence Day&#x27;</pre>"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -301,7 +385,14 @@
     {
       "id": "pHFh",
       "code_hash": "3ec454296bb0dc1ab5b1eba9bb86ad77",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[7, 4, [\"AAPL\", \"GOOG\", \"MSFT\", \"TSLA\"]]"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -333,7 +424,14 @@
     {
       "id": "TRpd",
       "code_hash": "fd30a3b2532bb06bb2b05ca93f53b70c",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[[\"AAPL\", \"GOOG\", \"MSFT\", \"TSLA\"], [\"AMZN\", \"NVDA\"]]"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -376,6 +474,19 @@
       "console": []
     },
     {
+      "id": "buLp",
+      "code_hash": "5c4c3cdad37802e11eb3edf28312da15",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">This would be a list that can be changed depending on the customer needs and wants.\nThis would be a Set because i am only looking at a name and see if they ordered or not\nThis would be dictionary because we are looking at the number of units and the product name\nThis would be a tuple because the tracking number and ship date cannot be changed once inputted.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
       "id": "wlCL",
       "code_hash": "c832b000e87673657a3bc225155ee9ba",
       "outputs": [
@@ -389,9 +500,68 @@
       "console": []
     },
     {
+      "id": "APmo",
+      "code_hash": "064592e97cdbc3d9a49678d49ee3b791",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">I would want to work with the tuple version because include more specific data point like symbol, shares and price all at once instead of calling each data point individually</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "VCuG",
+      "code_hash": "01838916d540d6e8b66af4c44ad33633",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">for _symbol, _shares, _price in holdings: total costs= shares * price</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "XuFo",
+      "code_hash": "c1fd5aa38f3493c8fe60cc7605fbc8de",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">The line you probably wouldn't have written yourself is that sum(...) call \u2014 it's doing the whole loop, unpacking, multiplication, and accumulation in a single expression. Here's what's happening inside it:</span>\n<span class=\"paragraph\">_shares * _price for _symbol, _shares, _price in holdings is called a generator expression. It behaves like your for loop \u2014 it walks through holdings one tuple at a time and unpacks each into _symbol, _shares, _price, exactly the way your version does \u2014 but instead of running a loop body with statements, it just computes one value (_shares * _price) per holding and streams those values out one at a time, without ever building them into a list you can see.</span>\n<span class=\"paragraph\">sum(...) wraps around that stream and adds everything it produces into one final number. That's what replaces your total_cost = 0 plus total_cost += _shares * _price \u2014 the running-total bookkeeping you did by hand is built into what sum() already knows how to do.</span>\n<span class=\"paragraph\">One quirk worth noticing: <em>symbol gets unpacked out of every tuple even though it's never used anywhere in the expression. Python's unpacking requires you to name all three positions of a 3-item tuple \u2014 you can't just grab the second and third items without accounting for the first one somehow (there are ways to skip it, like *</em>, but plain unpacking the way your own loop already does it is the simplest and matches what you wrote, so the agent's version kept that consistent rather than introducing a new trick).</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "loIP",
+      "code_hash": "bc9d957deda60dc6a4794f2fb2205aa9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>116302.7</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
       "id": "kqZH",
       "code_hash": "c8f862e56b4e11f6d7863336e449abd5",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[[\"AAPL\", 100, \"text/plain+float:173.93\"], [\"MSFT\", 50, \"text/plain+float:319.53\"], [\"GOOG\", 80, \"text/plain+float:131.36\"], [\"AMZN\", 200, \"text/plain+float:129.33\"], [\"NVDA\", 20, \"text/plain+float:410.17\"], [\"TSLA\", 150, \"text/plain+float:255.7\"]]"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -408,19 +578,59 @@
       "console": []
     },
     {
-      "id": "HwrB",
-      "code_hash": null,
-      "outputs": [],
+      "id": "LRod",
+      "code_hash": "ccbba1e99ae63f151cb659768c271d3e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><ol>\n<li>First in, first out: selling a certain number of shares from company on data and then number of share sold on another date</li>\n</ol></span>"
+          }
+        }
+      ],
       "console": []
     },
     {
-      "id": "rEll",
-      "code_hash": "fa923984c3255ec447f3c2f9d1ae94e5",
-      "outputs": [],
+      "id": "OmrY",
+      "code_hash": "4cdb8de28b8599a209fe9b86229f8edf",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><ol start=\"2\">\n<li>For each ticker, I keep a list of purchase batches in the order they were bought, where each batch remembers how many shares are still unsold from it, and the price paid for those shares.</li>\n</ol>\n<span class=\"paragraph\">When a sale happens, I look at the oldest batch still in the list for that ticker. If that batch alone has enough shares to cover the sale, I reduce its remaining share count by the amount sold, and the gain on that portion is (sale price \u2212 batch's purchase price) \u00d7 shares sold.</span>\n<span class=\"paragraph\">If that batch doesn't have enough shares to cover the whole sale, I use up all of what's left in it, calculate the gain on just that portion, remove the batch from the list since it's now empty, and move on to the next oldest batch to cover whatever's left of the sale \u2014 repeating until the full sale amount is accounted for.</span>\n<span class=\"paragraph\">Concretely: selling 120 AAPL on April 15 uses all 100 shares from the January batch first (which then disappears from the list, since it's used up), then takes 20 of the 50 shares from the March batch (which now has 30 shares left in it for future sales).</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "CcGh",
+      "code_hash": "e2b6e4e9fdd00331067f77eb280b85e1",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[[{\"date\": \"2026-04-15\", \"ticker\": \"AAPL\", \"gain\": \"text/plain+float:5400.0\"}, {\"date\": \"2026-06-08\", \"ticker\": \"MSFT\", \"gain\": \"text/plain+float:1200.0\"}, {\"date\": \"2026-08-12\", \"ticker\": \"AAPL\", \"gain\": \"text/plain+float:1300.0\"}], {\"AAPL\": \"text/plain+float:6700.0\", \"MSFT\": \"text/plain+float:1200.0\"}, \"text/plain+float:7900.0\", {\"AAPL\": [[20, \"text/plain+float:240.0\"]], \"MSFT\": [[10, \"text/plain+float:380.0\"]]}]"
+          }
+        }
+      ],
       "console": []
     },
     {
       "id": "dGlV",
+      "code_hash": "fa923984c3255ec447f3c2f9d1ae94e5",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[[\"2026-01-05\", \"AAPL\", \"buy\", 100, \"text/plain+float:180.0\"], [\"2026-02-10\", \"MSFT\", \"buy\", 40, \"text/plain+float:400.0\"], [\"2026-03-02\", \"AAPL\", \"buy\", 50, \"text/plain+float:210.0\"], [\"2026-04-15\", \"AAPL\", \"sell\", 120, \"text/plain+float:230.0\"], [\"2026-05-20\", \"MSFT\", \"buy\", 20, \"text/plain+float:380.0\"], [\"2026-06-08\", \"MSFT\", \"sell\", 50, \"text/plain+float:420.0\"], [\"2026-07-01\", \"AAPL\", \"buy\", 30, \"text/plain+float:240.0\"], [\"2026-08-12\", \"AAPL\", \"sell\", 40, \"text/plain+float:250.0\"]]"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SdmI",
       "code_hash": "14f7cd4877cce0e4ddc59b2059d2e199",
       "outputs": [
         {
@@ -433,13 +643,20 @@
       "console": []
     },
     {
-      "id": "SdmI",
+      "id": "lgWD",
       "code_hash": "8e41e132c0014809fc7c6d99010a66d6",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
       "console": []
     },
     {
-      "id": "lgWD",
+      "id": "yOPj",
       "code_hash": "b6080cd361c22f299a5a16f332dc3b04",
       "outputs": [
         {
@@ -452,13 +669,20 @@
       "console": []
     },
     {
-      "id": "yOPj",
+      "id": "fwwy",
       "code_hash": "b0a00ff4650826e66e32fe0666f52a91",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>200</pre>"
+          }
+        }
+      ],
       "console": []
     },
     {
-      "id": "fwwy",
+      "id": "LJZf",
       "code_hash": "9ca0b6832430b8774e2b359e92902d58",
       "outputs": [
         {
@@ -471,13 +695,20 @@
       "console": []
     },
     {
-      "id": "LJZf",
+      "id": "urSm",
       "code_hash": "25e9c1190b53d7f608172bbf33825be4",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "{\"latitude\": \"text/plain+float:42.299843\", \"longitude\": \"text/plain+float:-71.27756\", \"generationtime_ms\": \"text/plain+float:0.07724761962890625\", \"utc_offset_seconds\": -14400, \"timezone\": \"America/New_York\", \"timezone_abbreviation\": \"GMT-4\", \"elevation\": \"text/plain+float:49.0\", \"current_units\": {\"time\": \"iso8601\", \"interval\": \"seconds\", \"temperature_2m\": \"\\u00b0F\", \"wind_speed_10m\": \"mp/h\"}, \"current\": {\"time\": \"2026-10-25T14:15\", \"interval\": 900, \"temperature_2m\": \"text/plain+float:64.9\", \"wind_speed_10m\": \"text/plain+float:4.6\"}}"
+          }
+        }
+      ],
       "console": []
     },
     {
-      "id": "urSm",
+      "id": "jxvo",
       "code_hash": "bfc8683999bf41d5fa95b968a6d7ac0f",
       "outputs": [
         {
@@ -490,13 +721,20 @@
       "console": []
     },
     {
-      "id": "jxvo",
+      "id": "mWxS",
       "code_hash": "11b5f79650a5781c25cfe837407d6333",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>64.9</pre>"
+          }
+        }
+      ],
       "console": []
     },
     {
-      "id": "mWxS",
+      "id": "CcZR",
       "code_hash": "c3425bba2f14018ddc2c77f648f7f0c1",
       "outputs": [
         {
@@ -509,7 +747,7 @@
       "console": []
     },
     {
-      "id": "CcZR",
+      "id": "YWSi",
       "code_hash": "633b6cde8fbf36c51e0cad83b24a6182",
       "outputs": [
         {
@@ -522,13 +760,20 @@
       "console": []
     },
     {
-      "id": "YWSi",
+      "id": "zlud",
       "code_hash": "80c6a8567fd12b007ce7e420740ff83e",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[400, {\"reason\": \"Latitude must be in range of -90 to 90\\u00b0. Given: 422.0.\", \"error\": true}]"
+          }
+        }
+      ],
       "console": []
     },
     {
-      "id": "zlud",
+      "id": "tZnO",
       "code_hash": "a808c15a06a4a161083f4687541bd128",
       "outputs": [
         {
@@ -541,13 +786,20 @@
       "console": []
     },
     {
-      "id": "tZnO",
+      "id": "xvXZ",
       "code_hash": "5bd422ed104db59bf08fcd74f9c7c304",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[200, {\"generationtime_ms\": \"text/plain+float:0.12946129\"}]"
+          }
+        }
+      ],
       "console": []
     },
     {
-      "id": "xvXZ",
+      "id": "CLip",
       "code_hash": "79e04dc9b5727678afbbc571d99b4d01",
       "outputs": [
         {
@@ -560,13 +812,20 @@
       "console": []
     },
     {
-      "id": "CLip",
+      "id": "YECM",
       "code_hash": "9e24f0f5b2cd162f0e0a7f9d94eefd0c",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>True</pre>"
+          }
+        }
+      ],
       "console": []
     },
     {
-      "id": "YECM",
+      "id": "cEAS",
       "code_hash": "068ff4723243a56161860dcad659cc27",
       "outputs": [
         {
@@ -579,7 +838,7 @@
       "console": []
     },
     {
-      "id": "cEAS",
+      "id": "iXej",
       "code_hash": "9b744f95f434d09a4522ab2b8b9b534b",
       "outputs": [
         {
@@ -592,7 +851,20 @@
       "console": []
     },
     {
-      "id": "iXej",
+      "id": "ocxW",
+      "code_hash": "ece0a5b7608f8f5406f20d79049f23cc",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>&#x27;The wind is blowing at 4.6 mp/h&#x27;</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "EJmg",
       "code_hash": "ad89aa8c2d83a0b134f6b703f4e3576d",
       "outputs": [
         {
@@ -605,7 +877,46 @@
       "console": []
     },
     {
-      "id": "EJmg",
+      "id": "rqhW",
+      "code_hash": "e1beccba9ea17f8d56d6ff731d2720eb",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "YKjU",
+      "code_hash": "059c286d7ddd97d3d4c1a46280279889",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[200, {\"results\": [{\"id\": 4954738, \"name\": \"Wellesley\", \"latitude\": \"text/plain+float:42.29649\", \"longitude\": \"text/plain+float:-71.29256\", \"elevation\": \"text/plain+float:38.0\", \"feature_code\": \"PPL\", \"country_code\": \"US\", \"admin1_id\": 6254926, \"admin2_id\": 4945455, \"admin3_id\": 4954762, \"timezone\": \"America/New_York\", \"population\": 27982, \"postcodes\": [\"02482\"], \"country_id\": 6252001, \"country\": \"United States\", \"admin1\": \"Massachusetts\", \"admin2\": \"Norfolk\", \"admin3\": \"Town of Wellesley\"}], \"generationtime_ms\": \"text/plain+float:0.12266636\"}]"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "UZYU",
+      "code_hash": "da789ff9083482d86ad580b9eebbfc18",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[\"text/plain+float:42.29649\", \"text/plain+float:-71.29256\", \"Massachusetts\"]"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "UmEG",
       "code_hash": "f2545ca347269ba465ca538a06ff2b16",
       "outputs": [
         {
@@ -618,7 +929,33 @@
       "console": []
     },
     {
-      "id": "UmEG",
+      "id": "ecyX",
+      "code_hash": "a0328c593138c27eae00ab2d85a43a2d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Babson Park is located in Massachusetts and is located at index 1. if it grabbed 0 this would have grab the wrong data set with a warmer climate.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "zqia",
+      "code_hash": "6d7a63d6289287bc134c1fe68270f352",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[200, {\"results\": [{\"id\": 4146481, \"name\": \"Babson Park\", \"latitude\": \"text/plain+float:27.83197\", \"longitude\": \"text/plain+float:-81.5223\", \"elevation\": \"text/plain+float:44.0\", \"feature_code\": \"PPL\", \"country_code\": \"US\", \"admin1_id\": 4155751, \"admin2_id\": 4168988, \"timezone\": \"America/New_York\", \"population\": 1356, \"postcodes\": [\"33827\"], \"country_id\": 6252001, \"country\": \"United States\", \"admin1\": \"Florida\", \"admin2\": \"Polk\"}, {\"id\": 4929521, \"name\": \"Babson Park\", \"latitude\": \"text/plain+float:42.29871\", \"longitude\": \"text/plain+float:-71.2595\", \"elevation\": \"text/plain+float:47.0\", \"feature_code\": \"PPL\", \"country_code\": \"US\", \"admin1_id\": 6254926, \"admin2_id\": 4945455, \"admin3_id\": 4954762, \"timezone\": \"America/New_York\", \"postcodes\": [\"02457\"], \"country_id\": 6252001, \"country\": \"United States\", \"admin1\": \"Massachusetts\", \"admin2\": \"Norfolk\", \"admin3\": \"Town of Wellesley\"}], \"generationtime_ms\": \"text/plain+float:0.13911724\"}]"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vEBW",
       "code_hash": "993c8a3d00fea66424451e25fc63bfe3",
       "outputs": [
         {
@@ -631,7 +968,7 @@
       "console": []
     },
     {
-      "id": "vEBW",
+      "id": "kLmu",
       "code_hash": "4bf25d1302150d2ee75e97a52bb32a39",
       "outputs": [
         {
@@ -644,7 +981,7 @@
       "console": []
     },
     {
-      "id": "kLmu",
+      "id": "IpqN",
       "code_hash": "5068dcc10bd8c62d21c45024c783e6ba",
       "outputs": [
         {
@@ -657,7 +994,7 @@
       "console": []
     },
     {
-      "id": "IpqN",
+      "id": "dxZZ",
       "code_hash": "a76520898c0a49d002fbce90b67204b1",
       "outputs": [
         {

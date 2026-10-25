@@ -1,14 +1,21 @@
 {
   "version": "1",
   "metadata": {
-    "marimo_version": "0.24.2",
+    "marimo_version": "0.25.1",
     "script_metadata_hash": "d848f9de174660e41a371f5f58ae3c23"
   },
   "cells": [
     {
       "id": "Hbol",
       "code_hash": "1d0db38904205bec4d6f6f6a1f6cec3e",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -66,13 +73,27 @@
     {
       "id": "PKri",
       "code_hash": "ca2ac0a7aad14823f2bd2758cd901e5e",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
       "console": []
     },
     {
       "id": "Xref",
       "code_hash": "b9a3dad2977289276ed8dbc74e102af3",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>106.25</pre>"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -91,7 +112,14 @@
     {
       "id": "BYtC",
       "code_hash": "c8f862e56b4e11f6d7863336e449abd5",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[[\"AAPL\", 100, \"text/plain+float:173.93\"], [\"MSFT\", 50, \"text/plain+float:319.53\"], [\"GOOG\", 80, \"text/plain+float:131.36\"], [\"AMZN\", 200, \"text/plain+float:129.33\"], [\"NVDA\", 20, \"text/plain+float:410.17\"], [\"TSLA\", 150, \"text/plain+float:255.7\"]]"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -110,13 +138,27 @@
     {
       "id": "Kclp",
       "code_hash": "5972c5742a2be0f99522ee4be2cdbb74",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
       "console": []
     },
     {
       "id": "emfo",
       "code_hash": "fbcdd90c11ec2831b00fa6033a5c4c9a",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>116302.7</pre>"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -135,13 +177,27 @@
     {
       "id": "nWHF",
       "code_hash": "428b4c0c99c1cdc56d12353697857ed6",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[[\"VTI\", 120, \"text/plain+float:228.4\"], [\"BND\", 300, \"text/plain+float:72.15\"], [\"AAPL\", 40, \"text/plain+float:173.93\"]]"
+          }
+        }
+      ],
       "console": []
     },
     {
       "id": "iLit",
       "code_hash": "f081abd5f16aabef5649ae6239b827c2",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>56010.2</pre>"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -212,13 +268,34 @@
     {
       "id": "DnEU",
       "code_hash": "8e41e132c0014809fc7c6d99010a66d6",
-      "outputs": [],
-      "console": []
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "No module named 'requests'",
+          "traceback": null
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">\"/var/folders/sz/2k6dljw126nb_hh6cbx4d8vr0000gn/T/marimo_34910/__marimo__cell_DnEU_.py\"</span>, line <span class=\"m\">1</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"kn\">import</span><span class=\"w\"> </span><span class=\"nn\">requests</span>\n<span class=\"gr\">ModuleNotFoundError</span>: <span class=\"n\">No module named 'requests'</span>\n</pre></div>\n</span>",
+          "mimetype": "application/vnd.marimo+traceback"
+        }
+      ]
     },
     {
       "id": "ulZA",
       "code_hash": "afdea3774b798b782ef68b655c7e9fad",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "An ancestor raised an exception (ModuleNotFoundError): ",
+          "traceback": null
+        }
+      ],
       "console": []
     },
     {
@@ -440,6 +517,19 @@
           "data": {
             "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"f-write-on-the-board\">\u270f\ufe0f F \u00b7 Write on the board</h2>\n<ol>\n<li>Look up a town you know with the <code>name</code> parameter of <code>/ma/towns</code>. Keep its name as <code>town_name</code> and its average single-family bill as <code>town_bill</code>.</li>\n<li>Add a cell with the code below, put your GitHub username in place of the brackets, and run it.</li>\n</ol>\n<div class=\"language-python codehilite\"><pre><span></span><code><span class=\"n\">board_reply</span> <span class=\"o\">=</span> <span class=\"n\">requests</span><span class=\"o\">.</span><span class=\"n\">post</span><span class=\"p\">(</span>\n    <span class=\"s2\">\"https://oim.zhili.dev/message\"</span><span class=\"p\">,</span>\n    <span class=\"n\">headers</span><span class=\"o\">=</span><span class=\"p\">{</span><span class=\"s2\">\"x-token\"</span><span class=\"p\">:</span> <span class=\"s2\">\"&lt;your-github-username&gt;\"</span><span class=\"p\">},</span>\n    <span class=\"n\">json</span><span class=\"o\">=</span><span class=\"p\">{</span><span class=\"s2\">\"message\"</span><span class=\"p\">:</span> <span class=\"sa\">f</span><span class=\"s2\">\"</span><span class=\"si\">{</span><span class=\"n\">town_name</span><span class=\"si\">}</span><span class=\"s2\">: $</span><span class=\"si\">{</span><span class=\"n\">town_bill</span><span class=\"si\">:</span><span class=\"s2\">,</span><span class=\"si\">}</span><span class=\"s2\">\"</span><span class=\"p\">},</span>\n    <span class=\"n\">timeout</span><span class=\"o\">=</span><span class=\"mi\">10</span><span class=\"p\">,</span>\n<span class=\"p\">)</span>\n<span class=\"n\">board_reply</span><span class=\"o\">.</span><span class=\"n\">status_code</span><span class=\"p\">,</span> <span class=\"n\">board_reply</span><span class=\"o\">.</span><span class=\"n\">json</span><span class=\"p\">()</span>\n</code></pre></div>\n<span class=\"paragraph\"><em>Check yourself: </em><em>201</em><em>, which means the server created something, and your town on the board.</em></span>\n<ol start=\"3\">\n<li>Delete the <code>headers=</code> line and run it again. In a markdown cell under it, answer: what did the server answer, and why does it need to know who sent a message?</li>\n</ol>\n<span class=\"paragraph\"><strong>Going further.</strong> Post something more useful than one town's bill: choose a question somebody would ask, answer it from live data, and post the answer, in 140 characters or fewer.</span></span>"
           }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "WbWh",
+      "code_hash": "5d3bec0d18b53f1ebccf36d253e3fa89",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "An ancestor raised an exception (ModuleNotFoundError): ",
+          "traceback": null
         }
       ],
       "console": []

@@ -10,7 +10,7 @@
 
 import marimo
 
-__generated_with = "0.24.2"
+__generated_with = "0.25.1"
 app = marimo.App(width="medium", sql_output="polars")
 
 
@@ -403,6 +403,17 @@ def _(mo):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
+    This would be a list that can be changed depending on the customer needs and wants.
+    This would be a Set because i am only looking at a name and see if they ordered or not
+    This would be dictionary because we are looking at the number of units and the product name
+    This would be a tuple because the tracking number and ship date cannot be changed once inputted.
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
     ## ✏️ D · The portfolio again
 
     Notebook 2 held the six holdings as a list of dictionaries. Here they are as a list of tuples, one holding per tuple.
@@ -418,6 +429,45 @@ def _(mo):
     return
 
 
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    I would want to work with the tuple version because include more specific data point like symbol, shares and price all at once instead of calling each data point individually
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    for _symbol, _shares, _price in holdings: total costs= shares * price
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    The line you probably wouldn't have written yourself is that sum(...) call — it's doing the whole loop, unpacking, multiplication, and accumulation in a single expression. Here's what's happening inside it:
+
+    _shares * _price for _symbol, _shares, _price in holdings is called a generator expression. It behaves like your for loop — it walks through holdings one tuple at a time and unpacks each into _symbol, _shares, _price, exactly the way your version does — but instead of running a loop body with statements, it just computes one value (_shares * _price) per holding and streams those values out one at a time, without ever building them into a list you can see.
+
+    sum(...) wraps around that stream and adds everything it produces into one final number. That's what replaces your total_cost = 0 plus total_cost += _shares * _price — the running-total bookkeeping you did by hand is built into what sum() already knows how to do.
+
+    One quirk worth noticing: _symbol gets unpacked out of every tuple even though it's never used anywhere in the expression. Python's unpacking requires you to name all three positions of a 3-item tuple — you can't just grab the second and third items without accounting for the first one somehow (there are ways to skip it, like *_, but plain unpacking the way your own loop already does it is the simplest and matches what you wrote, so the agent's version kept that consistent rather than introducing a new trick).
+    """)
+    return
+
+
+@app.cell
+def _(holdings):
+    total_cost = 0
+    for _symbol, _shares, _price in holdings:
+        total_cost += _shares * _price
+    total_cost
+    return
+
+
 @app.cell
 def _():
     holdings = [
@@ -429,7 +479,7 @@ def _():
         ("TSLA", 150, 255.70),
     ]
     holdings
-    return
+    return (holdings,)
 
 
 @app.cell(hide_code=True)
@@ -448,8 +498,59 @@ def _(mo):
     return
 
 
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    1. First in, first out: selling a certain number of shares from company on data and then number of share sold on another date
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    2. For each ticker, I keep a list of purchase batches in the order they were bought, where each batch remembers how many shares are still unsold from it, and the price paid for those shares.
+
+    When a sale happens, I look at the oldest batch still in the list for that ticker. If that batch alone has enough shares to cover the sale, I reduce its remaining share count by the amount sold, and the gain on that portion is (sale price − batch's purchase price) × shares sold.
+
+    If that batch doesn't have enough shares to cover the whole sale, I use up all of what's left in it, calculate the gain on just that portion, remove the batch from the list since it's now empty, and move on to the next oldest batch to cover whatever's left of the sale — repeating until the full sale amount is accounted for.
+
+    Concretely: selling 120 AAPL on April 15 uses all 100 shares from the January batch first (which then disappears from the list, since it's used up), then takes 20 of the 50 shares from the March batch (which now has 30 shares left in it for future sales).
+    """)
+    return
+
+
 @app.cell
-def _():
+def _(year_trades):
+    lots = {}  # ticker -> list of [shares_remaining, price]
+    sale_gains = []
+    gains_by_ticker = {}
+
+    for _date, _ticker, _action, _shares, _price in year_trades:
+        if _ticker not in lots:
+            lots[_ticker] = []
+        if _action == "buy":
+            lots[_ticker].append([_shares, _price])
+        elif _action == "sell":
+            shares_to_sell = _shares
+            gain = 0.0
+            while shares_to_sell > 0:
+                batch = lots[_ticker][0]
+                batch_shares, batch_price = batch
+                if batch_shares <= shares_to_sell:
+                    gain += (_price - batch_price) * batch_shares
+                    shares_to_sell -= batch_shares
+                    lots[_ticker].pop(0)
+                else:
+                    gain += (_price - batch_price) * shares_to_sell
+                    batch[0] -= shares_to_sell
+                    shares_to_sell = 0
+            gain = round(gain, 2)
+            gains_by_ticker[_ticker] = gains_by_ticker.get(_ticker, 0) + gain
+            sale_gains.append({"date": _date, "ticker": _ticker, "gain": gain})
+
+    total_gain = round(sum(gains_by_ticker.values()), 2)
+    sale_gains, gains_by_ticker, total_gain, lots
     return
 
 
@@ -466,7 +567,7 @@ def _():
         ("2026-08-12", "AAPL", "sell", 40, 250.00),
     ]
     year_trades
-    return
+    return (year_trades,)
 
 
 @app.cell(hide_code=True)
@@ -628,11 +729,42 @@ def _(mo):
     return
 
 
+@app.cell
+def _(babson_weather):
+    speed = babson_weather["current"]["wind_speed_10m"]
+    unit = babson_weather["current_units"]["wind_speed_10m"]
+    f"The wind is blowing at {speed} {unit}"
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
     **F · Another town.** Search for `Wellesley` the way the misspelled search did, with the correct spelling. Take the first place out of `results`, then its `latitude`, `longitude` and `admin1`. *Check yourself: latitude 42.29649, in Massachusetts.*
     """)
+    return
+
+
+@app.cell
+def _(requests):
+    wellesley_reply = requests.get(
+        "https://geocoding-api.open-meteo.com/v1/search?name=Wellesley&count=1",
+        timeout=10,
+    )
+    return (wellesley_reply,)
+
+
+@app.cell
+def _(wellesley_reply):
+    wellesley_reply.status_code, wellesley_reply.json()
+    return
+
+
+@app.cell
+def _(wellesley_reply):
+    wellesley_places = wellesley_reply.json()["results"]
+    wellesley_first = wellesley_places[0]
+    wellesley_first["latitude"], wellesley_first["longitude"], wellesley_first["admin1"]
     return
 
 
@@ -643,6 +775,24 @@ def _(mo):
 
     **Going further.** Use F's coordinates to ask for Wellesley's current temperature. Build the address with an f-string, so that changing the town changes the forecast.
     """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    Babson Park is located in Massachusetts and is located at index 1. if it grabbed 0 this would have grab the wrong data set with a warmer climate.
+    """)
+    return
+
+
+@app.cell
+def _(requests):
+    babson_park_reply = requests.get(
+        "https://geocoding-api.open-meteo.com/v1/search?name=Babson+Park",
+        timeout=10,
+    )
+    babson_park_reply.status_code, babson_park_reply.json()
     return
 
 
