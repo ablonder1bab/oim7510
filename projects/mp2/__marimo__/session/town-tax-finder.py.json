@@ -1,0 +1,128 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.25.2",
+    "script_metadata_hash": null
+  },
+  "cells": [
+    {
+      "id": "aJnP",
+      "code_hash": "1454d7c9ab42306b829abeb699055fbc",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Hbol",
+      "code_hash": "c7198ead103a9e8ac631cac5cc06cdac",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">This tool will help homebuyers find towns where homes fit the budget and the tax bill stays under a limit, ranked from cheapest to most expensive</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PPmI",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "yIWF",
+      "code_hash": "ae6867dbe35ea9c0e7c261856fc58154",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">I will need to pull data from the state of MA that stays within the budget.\nI will need to get every town in middlesex county\nI will need only the towns where the average home value and average tax bill are within the budget of 708000\ni want to sort the remaining towns from cheapest to most expensive and give a recommendation for the buyer</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ADKH",
+      "code_hash": "07dc02cefad834508ed06b2f226b33d7",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "MclH",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "CtMl",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "ljZv",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "DMqR",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "rACZ",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "aMqe",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "ojFx",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "pGId",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "VDoY",
+      "code_hash": "1d0db38904205bec4d6f6f6a1f6cec3e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    }
+  ]
+}
