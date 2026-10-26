@@ -1,0 +1,586 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.25.2",
+    "script_metadata_hash": "c315b3dad76e62b3f4c3dc8a87179fda"
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "1d0db38904205bec4d6f6f6a1f6cec3e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "0bc454bb292ca83d6c0578a8d0913695",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "d4bd8122631e9ed1c8ed295afd029e20",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"from-a-csv-file-to-a-dataframe\">From a CSV File to a Dataframe</h1>\n<span class=\"paragraph\">In this notebook you save the towns you read from the course API last week to a file, read them back, and answer one question about them three ways: with a loop, in polars and in SQL. Then you chart the answer.</span>\n<table>\n<thead>\n<tr>\n<th></th>\n<th></th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>\u270f\ufe0f</td>\n<td>Your turn. Add cells with the <strong>+</strong> button</td>\n</tr>\n<tr>\n<td>\ud83d\ude80</td>\n<td>This week's work</td>\n</tr>\n</tbody>\n</table>\n<span class=\"paragraph\">For a written answer, add a cell under the question, open the cell's <strong>\u22ef</strong> menu and choose <strong>Convert to Markdown</strong>.</span>\n<span class=\"paragraph\">Every \u270f\ufe0f is part of this week's work. The <strong>Going further</strong> at the end of an exercise is optional; try it once the rest is done.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "d240f9bc9f6e9ed7296a2004a8a701f5",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><strong>Work with your agent the same way as in notebook 4.</strong> Try it yourself first, or write the steps in words. Then ask your agent, ask it to explain any line you could not have written, and ask which concepts its answer used. Exercise A is by hand.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "f685003017973334724f4c9e78f8301d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"1-saving-what-you-fetched\">1. Saving What You Fetched</h1>\n<span class=\"paragraph\">The towns you read last week lived in memory, and they were gone when the notebook stopped. An API also changes. The shop takes new orders every day, and the tax figures change every year. <strong>Save a copy to a file</strong>, and the same analysis runs again on the same data, without a network, and anybody can open it in a spreadsheet. <a href=\"/assignments/mini-project-2/\">Mini Project 2</a> asks you to do the same.</span>\n<span class=\"paragraph\"><strong>CSV</strong> is the plainest table a file can hold: one line per record, commas between the values, and a first line that names the columns.</span>\n<span class=\"paragraph\">First, collect every town. <code>/ma/counties</code> lists the 14 counties.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "bef39265bbcfb02bcbc6c95625dcadcd",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[{\"name\": \"Barnstable\", \"towns\": 15, \"population\": 232570}, 14]"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "9c5a321da8e073fc5fce6d48acea1297",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><code>get_towns</code> is the function from notebook 4, section 2, with one change: <code>per_page=100</code>, because the largest county has 60 towns and the server sends 50 to a page unless you ask for more. Called once per county, it collects every town in the state.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "460e9d4b6395a0be8d56dd84beab8151",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "c512f2c7a54c0b67eb104a13b0d8a4e3",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>351</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "RGSE",
+      "code_hash": "db6fda2e9f9199dd2effece4080894a9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><strong>Writing the file.</strong> Python's <code>csv</code> module writes and reads CSV files, so you never put the commas in yourself. <code>csv.DictWriter</code> takes a list of dictionaries, the shape you already have:</span>\n<ul>\n<li><code>fieldnames</code> names the columns to keep, in order. Each town has 14 fields, and <code>extrasaction=\"ignore\"</code> leaves out the ones not named.</li>\n<li><code>.writeheader()</code> writes the first line, and <code>.writerows()</code> writes one line per town.</li>\n<li><code>open(path, \"w\")</code> opens the file for writing, and <code>with</code> closes it when the block ends. The empty <code>newline</code> setting is what the <code>csv</code> module asks for, so that lines end the same way on every computer.</li>\n</ul>\n<span class=\"paragraph\">A data file goes in the <code>data</code> folder, which sits in the root folder of your repository, one folder up from this notebook.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Kclp",
+      "code_hash": "1f2f7ce44bc3dd6e5f77bab9569dcf91",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>&#x27;ma-towns.csv&#x27;</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "emfo",
+      "code_hash": "84d5b074d13f66bd22cf8c70d40b30a9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><strong>Open it.</strong> In VS Code's Explorer, the <code>data</code> folder now sits beside the <code>notebooks</code> folder, and <code>ma-towns.csv</code> is inside it. Click it: the table is plain text, one town per line.</span>\n<span class=\"paragraph\"><strong>Reading it back.</strong> <code>csv.DictReader</code> reads one line at a time and turns each into a dictionary, with the header's names as keys. <code>list(...)</code> collects them all, and you are back to a list of records, the shape the API sent.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Hstk",
+      "code_hash": "9c68878466dd4b6ace6fe0b1425a2e32",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[351, {\"name\": \"Barnstable\", \"county\": \"Barnstable\", \"population\": \"49831\", \"income_per_capita_dollars\": \"52832\", \"average_single_family_value_dollars\": \"823363\", \"average_single_family_bill_dollars\": \"5599\"}]"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "nWHF",
+      "code_hash": "526edb740cc1bbcb14252f677693f32d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><strong>Every value the <code>csv</code> module reads is text.</strong> Look at the population: <code>'49831'</code>, in quotes. A CSV file has no types, only characters, so the module gives you strings, and adding 1 to one raises a <code>TypeError</code>. <code>int()</code> turns it back into a number, or <code>float()</code> when it has a decimal point. The file does not record which columns were numbers, so you convert them yourself.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "iLit",
+      "code_hash": "391a35614888d4ac6eca417662cc235d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[\"49831\", 49831]"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ZHCJ",
+      "code_hash": "457e67343c71e31d9b6b3424b0ec11b5",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"a-by-hand\">\u270f\ufe0f A \u00b7 By Hand</h2>\n<span class=\"paragraph\"><strong>No agent for this one</strong>, and no code completion either. When the editor suggests code in grey as you type, press <code>Esc</code> and keep typing your own.</span>\n<span class=\"paragraph\"><code>average_single_family_value_dollars</code> is the state's figure for what a single-family home in the town is worth on average, as the town assesses it for tax. Call a town a <strong>million-dollar town</strong> when that figure is $1,000,000 or more. Across the state the middle town is near $586,000.</span>\n<ol>\n<li>How many million-dollar towns are there, and which county has the most of them? Use <code>towns_from_file</code>, a <code>for</code> loop, <code>int()</code>, and a dictionary that counts, as in notebook 3. <em>Check yourself: 53 towns, and Middlesex has the most, with 14.</em></li>\n<li>Which town has the fewest people, and which has the most? Loop over <code>towns_from_file</code> and keep the smallest and the largest you have seen so far, the way <code>find_largest</code> did in notebook 4. <em>Check yourself: Gosnold, with 62 people, and Boston, with 673,458.</em></li>\n</ol>\n<span class=\"paragraph\"><strong>Going further.</strong> Find the town with the most expensive average home in each county.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ROlb",
+      "code_hash": "86226cd36768aef8706fdbec88b55b66",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "multiple-defs",
+          "evalue": "The variable 'county_counts' was defined by another cell",
+          "traceback": []
+        },
+        {
+          "type": "error",
+          "ename": "multiple-defs",
+          "evalue": "The variable 'town' was defined by another cell",
+          "traceback": []
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "iXfG",
+      "code_hash": "ccc36a8aae228a9c55089e7b09bb9b45",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "multiple-defs",
+          "evalue": "The variable 'town' was defined by another cell",
+          "traceback": []
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "qnkX",
+      "code_hash": "96a98f89acadfc2825f603f78c04d328",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"2-describe-what-you-want\">2. Describe What You Want</h1>\n<span class=\"paragraph\">Your loops in A spelled out <strong>how</strong>: go through every town, convert, compare, add one or keep the smallest. That took a dozen lines, and a reader has to run them in their head to know what they answer. <strong>polars</strong> lets you describe <strong>what</strong> you want instead.</span>\n<span class=\"paragraph\"><code>pl.read_csv</code> reads the same file into a <strong>DataFrame</strong>: a table with named columns. It is your list of records shown as a table, each row a record and each column a key, and polars has already turned the numbers into numbers.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "TqIu",
+      "code_hash": "e5c40be846113c1c7b8aa51bdc3d215b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='TqIu-0' random-id='b9054c0d-a555-7698-5612-686442cfc197'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;name&#92;&quot;:&#92;&quot;Barnstable&#92;&quot;,&#92;&quot;county&#92;&quot;:&#92;&quot;Barnstable&#92;&quot;,&#92;&quot;population&#92;&quot;:49831,&#92;&quot;income_per_capita_dollars&#92;&quot;:52832,&#92;&quot;average_single_family_value_dollars&#92;&quot;:823363,&#92;&quot;average_single_family_bill_dollars&#92;&quot;:5599},{&#92;&quot;name&#92;&quot;:&#92;&quot;Bourne&#92;&quot;,&#92;&quot;county&#92;&quot;:&#92;&quot;Barnstable&#92;&quot;,&#92;&quot;population&#92;&quot;:20508,&#92;&quot;income_per_capita_dollars&#92;&quot;:49345,&#92;&quot;average_single_family_value_dollars&#92;&quot;:794061,&#92;&quot;average_single_family_bill_dollars&#92;&quot;:6075},{&#92;&quot;name&#92;&quot;:&#92;&quot;Brewster&#92;&quot;,&#92;&quot;county&#92;&quot;:&#92;&quot;Barnstable&#92;&quot;,&#92;&quot;population&#92;&quot;:10447,&#92;&quot;income_per_capita_dollars&#92;&quot;:55197,&#92;&quot;average_single_family_value_dollars&#92;&quot;:999123,&#92;&quot;average_single_family_bill_dollars&#92;&quot;:7014},{&#92;&quot;name&#92;&quot;:&#92;&quot;Chatham&#92;&quot;,&#92;&quot;county&#92;&quot;:&#92;&quot;Barnstable&#92;&quot;,&#92;&quot;population&#92;&quot;:6711,&#92;&quot;income_per_capita_dollars&#92;&quot;:92760,&#92;&quot;average_single_family_value_dollars&#92;&quot;:1809733,&#92;&quot;average_single_family_bill_dollars&#92;&quot;:6587},{&#92;&quot;name&#92;&quot;:&#92;&quot;Dennis&#92;&quot;,&#92;&quot;county&#92;&quot;:&#92;&quot;Barnstable&#92;&quot;,&#92;&quot;population&#92;&quot;:14862,&#92;&quot;income_per_capita_dollars&#92;&quot;:49780,&#92;&quot;average_single_family_value_dollars&#92;&quot;:902887,&#92;&quot;average_single_family_bill_dollars&#92;&quot;:3873},{&#92;&quot;name&#92;&quot;:&#92;&quot;Eastham&#92;&quot;,&#92;&quot;county&#92;&quot;:&#92;&quot;Barnstable&#92;&quot;,&#92;&quot;population&#92;&quot;:5824,&#92;&quot;income_per_capita_dollars&#92;&quot;:47154,&#92;&quot;average_single_family_value_dollars&#92;&quot;:875514,&#92;&quot;average_single_family_bill_dollars&#92;&quot;:7249},{&#92;&quot;name&#92;&quot;:&#92;&quot;Falmouth&#92;&quot;,&#92;&quot;county&#92;&quot;:&#92;&quot;Barnstable&#92;&quot;,&#92;&quot;population&#92;&quot;:33227,&#92;&quot;income_per_capita_dollars&#92;&quot;:58210,&#92;&quot;average_single_family_value_dollars&#92;&quot;:1026338,&#92;&quot;average_single_family_bill_dollars&#92;&quot;:5881},{&#92;&quot;name&#92;&quot;:&#92;&quot;Harwich&#92;&quot;,&#92;&quot;county&#92;&quot;:&#92;&quot;Barnstable&#92;&quot;,&#92;&quot;population&#92;&quot;:13620,&#92;&quot;income_per_capita_dollars&#92;&quot;:54010,&#92;&quot;average_single_family_value_dollars&#92;&quot;:1010724,&#92;&quot;average_single_family_bill_dollars&#92;&quot;:5872},{&#92;&quot;name&#92;&quot;:&#92;&quot;Mashpee&#92;&quot;,&#92;&quot;county&#92;&quot;:&#92;&quot;Barnstable&#92;&quot;,&#92;&quot;population&#92;&quot;:15482,&#92;&quot;income_per_capita_dollars&#92;&quot;:56318,&#92;&quot;average_single_family_value_dollars&#92;&quot;:990034,&#92;&quot;average_single_family_bill_dollars&#92;&quot;:6346},{&#92;&quot;name&#92;&quot;:&#92;&quot;Orleans&#92;&quot;,&#92;&quot;county&#92;&quot;:&#92;&quot;Barnstable&#92;&quot;,&#92;&quot;population&#92;&quot;:6485,&#92;&quot;income_per_capita_dollars&#92;&quot;:69762,&#92;&quot;average_single_family_value_dollars&#92;&quot;:1467959,&#92;&quot;average_single_family_bill_dollars&#92;&quot;:8969}]&quot;' data-total-rows='351' data-total-columns='6' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;name&quot;,[&quot;string&quot;,&quot;str&quot;]],[&quot;county&quot;,[&quot;string&quot;,&quot;str&quot;]],[&quot;population&quot;,[&quot;integer&quot;,&quot;i64&quot;]],[&quot;income_per_capita_dollars&quot;,[&quot;integer&quot;,&quot;i64&quot;]],[&quot;average_single_family_value_dollars&quot;,[&quot;integer&quot;,&quot;i64&quot;]],[&quot;average_single_family_bill_dollars&quot;,[&quot;integer&quot;,&quot;i64&quot;]]]' data-show-filters='true' data-show-download='true' data-show-search='true' data-show-column-summaries='true' data-show-data-types='true' data-show-page-size-selector='true' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[]' data-hidden-columns='[]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Vxnm",
+      "code_hash": "ca66d4f524160e128dc20f0b210f7fe2",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><code>.schema</code> lists each column with its type, the step you did with <code>int()</code>. <code>.shape</code> is the number of rows and columns.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "DnEU",
+      "code_hash": "cc417b0b26bcf45183a0b87697b0f9e0",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[{\"name\": \"text/plain:String\", \"county\": \"text/plain:String\", \"population\": \"text/plain:Int64\", \"income_per_capita_dollars\": \"text/plain:Int64\", \"average_single_family_value_dollars\": \"text/plain:Int64\", \"average_single_family_bill_dollars\": \"text/plain:Int64\"}, [351, 6]]"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ulZA",
+      "code_hash": "840e8460324fb8ca9667f11d8b22f3cf",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><strong>A's second step in one line.</strong> <code>.sort()</code> puts the rows in order of one column, smallest first, so the first row is the town with the fewest people. <code>descending=True</code> puts the largest first.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ecfG",
+      "code_hash": "c9e68e995a7dd41a321073a8b52b55e9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='ecfG-0' random-id='1c794e55-67b5-ca55-47f9-610719317e27'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;name&#92;&quot;:&#92;&quot;Gosnold&#92;&quot;,&#92;&quot;county&#92;&quot;:&#92;&quot;Dukes&#92;&quot;,&#92;&quot;population&#92;&quot;:62,&#92;&quot;income_per_capita_dollars&#92;&quot;:21887,&#92;&quot;average_single_family_value_dollars&#92;&quot;:1080742,&#92;&quot;average_single_family_bill_dollars&#92;&quot;:3415},{&#92;&quot;name&#92;&quot;:&#92;&quot;Monroe&#92;&quot;,&#92;&quot;county&#92;&quot;:&#92;&quot;Franklin&#92;&quot;,&#92;&quot;population&#92;&quot;:115,&#92;&quot;income_per_capita_dollars&#92;&quot;:6348,&#92;&quot;average_single_family_value_dollars&#92;&quot;:183531,&#92;&quot;average_single_family_bill_dollars&#92;&quot;:1859},{&#92;&quot;name&#92;&quot;:&#92;&quot;Mount Washington&#92;&quot;,&#92;&quot;county&#92;&quot;:&#92;&quot;Berkshire&#92;&quot;,&#92;&quot;population&#92;&quot;:157,&#92;&quot;income_per_capita_dollars&#92;&quot;:71739,&#92;&quot;average_single_family_value_dollars&#92;&quot;:623166,&#92;&quot;average_single_family_bill_dollars&#92;&quot;:3720},{&#92;&quot;name&#92;&quot;:&#92;&quot;New Ashford&#92;&quot;,&#92;&quot;county&#92;&quot;:&#92;&quot;Berkshire&#92;&quot;,&#92;&quot;population&#92;&quot;:249,&#92;&quot;income_per_capita_dollars&#92;&quot;:30799,&#92;&quot;average_single_family_value_dollars&#92;&quot;:506938,&#92;&quot;average_single_family_bill_dollars&#92;&quot;:2879},{&#92;&quot;name&#92;&quot;:&#92;&quot;Hawley&#92;&quot;,&#92;&quot;county&#92;&quot;:&#92;&quot;Franklin&#92;&quot;,&#92;&quot;population&#92;&quot;:352,&#92;&quot;income_per_capita_dollars&#92;&quot;:23000,&#92;&quot;average_single_family_value_dollars&#92;&quot;:286904,&#92;&quot;average_single_family_bill_dollars&#92;&quot;:4648},{&#92;&quot;name&#92;&quot;:&#92;&quot;Middlefield&#92;&quot;,&#92;&quot;county&#92;&quot;:&#92;&quot;Hampshire&#92;&quot;,&#92;&quot;population&#92;&quot;:397,&#92;&quot;income_per_capita_dollars&#92;&quot;:24970,&#92;&quot;average_single_family_value_dollars&#92;&quot;:260179,&#92;&quot;average_single_family_bill_dollars&#92;&quot;:4392},{&#92;&quot;name&#92;&quot;:&#92;&quot;Tyringham&#92;&quot;,&#92;&quot;county&#92;&quot;:&#92;&quot;Berkshire&#92;&quot;,&#92;&quot;population&#92;&quot;:419,&#92;&quot;income_per_capita_dollars&#92;&quot;:27933,&#92;&quot;average_single_family_value_dollars&#92;&quot;:685808,&#92;&quot;average_single_family_bill_dollars&#92;&quot;:4547},{&#92;&quot;name&#92;&quot;:&#92;&quot;Rowe&#92;&quot;,&#92;&quot;county&#92;&quot;:&#92;&quot;Franklin&#92;&quot;,&#92;&quot;population&#92;&quot;:419,&#92;&quot;income_per_capita_dollars&#92;&quot;:34659,&#92;&quot;average_single_family_value_dollars&#92;&quot;:316902,&#92;&quot;average_single_family_bill_dollars&#92;&quot;:1661},{&#92;&quot;name&#92;&quot;:&#92;&quot;Aquinnah&#92;&quot;,&#92;&quot;county&#92;&quot;:&#92;&quot;Dukes&#92;&quot;,&#92;&quot;population&#92;&quot;:451,&#92;&quot;income_per_capita_dollars&#92;&quot;:53350,&#92;&quot;average_single_family_value_dollars&#92;&quot;:1845298,&#92;&quot;average_single_family_bill_dollars&#92;&quot;:12677},{&#92;&quot;name&#92;&quot;:&#92;&quot;Tolland&#92;&quot;,&#92;&quot;county&#92;&quot;:&#92;&quot;Hampden&#92;&quot;,&#92;&quot;population&#92;&quot;:474,&#92;&quot;income_per_capita_dollars&#92;&quot;:34310,&#92;&quot;average_single_family_value_dollars&#92;&quot;:429183,&#92;&quot;average_single_family_bill_dollars&#92;&quot;:3373}]&quot;' data-total-rows='351' data-total-columns='6' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;name&quot;,[&quot;string&quot;,&quot;str&quot;]],[&quot;county&quot;,[&quot;string&quot;,&quot;str&quot;]],[&quot;population&quot;,[&quot;integer&quot;,&quot;i64&quot;]],[&quot;income_per_capita_dollars&quot;,[&quot;integer&quot;,&quot;i64&quot;]],[&quot;average_single_family_value_dollars&quot;,[&quot;integer&quot;,&quot;i64&quot;]],[&quot;average_single_family_bill_dollars&quot;,[&quot;integer&quot;,&quot;i64&quot;]]]' data-show-filters='true' data-show-download='true' data-show-search='true' data-show-column-summaries='true' data-show-data-types='true' data-show-page-size-selector='true' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[]' data-hidden-columns='[]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Pvdt",
+      "code_hash": "61c8950d81e4f3dda584c681c0b0bf08",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Here is A's first step in polars. Read it as a sentence:</span>\n<ul>\n<li><code>.filter(...)</code> keeps the million-dollar towns. It is the <code>if</code> in your loop, applied to every row at once, and <code>pl.col(...)</code> names the column it reads.</li>\n<li><code>.group_by(\"county\")</code> makes one group per county, and <code>.agg(pl.len())</code> counts the rows in each. It is your counting dictionary.</li>\n<li><code>.sort(..., descending=True)</code> puts the largest first.</li>\n</ul></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ZBYS",
+      "code_hash": "2315789fa1c117de962459a82f2e0bec",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='ZBYS-0' random-id='82c8e314-ea2f-0cc4-e17f-88c213318992'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;county&#92;&quot;:&#92;&quot;Middlesex&#92;&quot;,&#92;&quot;towns&#92;&quot;:14},{&#92;&quot;county&#92;&quot;:&#92;&quot;Essex&#92;&quot;,&#92;&quot;towns&#92;&quot;:10},{&#92;&quot;county&#92;&quot;:&#92;&quot;Norfolk&#92;&quot;,&#92;&quot;towns&#92;&quot;:8},{&#92;&quot;county&#92;&quot;:&#92;&quot;Barnstable&#92;&quot;,&#92;&quot;towns&#92;&quot;:7},{&#92;&quot;county&#92;&quot;:&#92;&quot;Dukes&#92;&quot;,&#92;&quot;towns&#92;&quot;:7},{&#92;&quot;county&#92;&quot;:&#92;&quot;Plymouth&#92;&quot;,&#92;&quot;towns&#92;&quot;:5},{&#92;&quot;county&#92;&quot;:&#92;&quot;Berkshire&#92;&quot;,&#92;&quot;towns&#92;&quot;:1},{&#92;&quot;county&#92;&quot;:&#92;&quot;Nantucket&#92;&quot;,&#92;&quot;towns&#92;&quot;:1}]&quot;' data-total-rows='8' data-total-columns='2' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='false' data-page-size='10' data-field-types='[[&quot;county&quot;,[&quot;string&quot;,&quot;str&quot;]],[&quot;towns&quot;,[&quot;integer&quot;,&quot;u32&quot;]]]' data-show-filters='true' data-show-download='true' data-show-search='true' data-show-column-summaries='false' data-show-data-types='true' data-show-page-size-selector='true' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[]' data-hidden-columns='[]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "aLJB",
+      "code_hash": "a270c6e9e73679696ecb8f81f3832ee3",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><strong>A count can mislead.</strong> Middlesex has the most million-dollar towns, and it also has 54 towns, more than any county but Worcester. The fairer question is what share of each county's towns are million-dollar towns.</span>\n<ul>\n<li><code>pl.len()</code> counts all the towns in each county.</li>\n<li>A comparison such as <code>pl.col(...) &gt;= 1_000_000</code> is <code>True</code> or <code>False</code> for each town, and <code>.sum()</code> adds up the <code>True</code>s, which counts them.</li>\n<li><code>.with_columns()</code> adds a column computed from the others, here one count divided by the other.</li>\n</ul></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "nHfw",
+      "code_hash": "4a7cd01e9f02ef447fb1bd47cacce83d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='nHfw-0' random-id='c9dba2c5-1b2a-03b0-f911-83f8a2ef8ba4'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;county&#92;&quot;:&#92;&quot;Nantucket&#92;&quot;,&#92;&quot;towns&#92;&quot;:1,&#92;&quot;million_dollar_towns&#92;&quot;:1,&#92;&quot;share&#92;&quot;:1.0},{&#92;&quot;county&#92;&quot;:&#92;&quot;Dukes&#92;&quot;,&#92;&quot;towns&#92;&quot;:7,&#92;&quot;million_dollar_towns&#92;&quot;:7,&#92;&quot;share&#92;&quot;:1.0},{&#92;&quot;county&#92;&quot;:&#92;&quot;Barnstable&#92;&quot;,&#92;&quot;towns&#92;&quot;:15,&#92;&quot;million_dollar_towns&#92;&quot;:7,&#92;&quot;share&#92;&quot;:0.4666666666666667},{&#92;&quot;county&#92;&quot;:&#92;&quot;Essex&#92;&quot;,&#92;&quot;towns&#92;&quot;:34,&#92;&quot;million_dollar_towns&#92;&quot;:10,&#92;&quot;share&#92;&quot;:0.29411764705882354},{&#92;&quot;county&#92;&quot;:&#92;&quot;Norfolk&#92;&quot;,&#92;&quot;towns&#92;&quot;:28,&#92;&quot;million_dollar_towns&#92;&quot;:8,&#92;&quot;share&#92;&quot;:0.2857142857142857},{&#92;&quot;county&#92;&quot;:&#92;&quot;Middlesex&#92;&quot;,&#92;&quot;towns&#92;&quot;:54,&#92;&quot;million_dollar_towns&#92;&quot;:14,&#92;&quot;share&#92;&quot;:0.25925925925925924},{&#92;&quot;county&#92;&quot;:&#92;&quot;Plymouth&#92;&quot;,&#92;&quot;towns&#92;&quot;:27,&#92;&quot;million_dollar_towns&#92;&quot;:5,&#92;&quot;share&#92;&quot;:0.18518518518518517},{&#92;&quot;county&#92;&quot;:&#92;&quot;Berkshire&#92;&quot;,&#92;&quot;towns&#92;&quot;:32,&#92;&quot;million_dollar_towns&#92;&quot;:1,&#92;&quot;share&#92;&quot;:0.03125},{&#92;&quot;county&#92;&quot;:&#92;&quot;Franklin&#92;&quot;,&#92;&quot;towns&#92;&quot;:26,&#92;&quot;million_dollar_towns&#92;&quot;:0,&#92;&quot;share&#92;&quot;:0.0},{&#92;&quot;county&#92;&quot;:&#92;&quot;Bristol&#92;&quot;,&#92;&quot;towns&#92;&quot;:20,&#92;&quot;million_dollar_towns&#92;&quot;:0,&#92;&quot;share&#92;&quot;:0.0}]&quot;' data-total-rows='14' data-total-columns='4' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;county&quot;,[&quot;string&quot;,&quot;str&quot;]],[&quot;towns&quot;,[&quot;integer&quot;,&quot;u32&quot;]],[&quot;million_dollar_towns&quot;,[&quot;integer&quot;,&quot;u32&quot;]],[&quot;share&quot;,[&quot;number&quot;,&quot;f64&quot;]]]' data-show-filters='true' data-show-download='true' data-show-search='true' data-show-column-summaries='true' data-show-data-types='true' data-show-page-size-selector='true' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[]' data-hidden-columns='[]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "xXTn",
+      "code_hash": "e198428ce1cd286ed3ef3f9d5f5ba1b6",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">The share tells a different story from the count. Every town in Dukes County, which is Martha's Vineyard and the Elizabeth Islands, and in Nantucket is a million-dollar town, and nearly half of Barnstable's, which is Cape Cod. Middlesex comes sixth.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "AjVT",
+      "code_hash": "96e0919cb7888b6403f22712c338faad",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"b-check-against-the-server\">\u270f\ufe0f B \u00b7 Check Against the Server</h2>\n<ol>\n<li>Count every town per county with <code>town_table</code>, <code>.group_by()</code> and <code>.agg()</code>. The server counts them too, in <code>ma_counties</code>, and <code>pl.DataFrame(ma_counties)</code> turns that list of records into a table. Do the two agree? <em>Check yourself: Worcester 60, Middlesex 54, Essex 34, and all 14 agree.</em></li>\n<li>Which five towns of more than 50,000 people have the highest average single-family bill? Use <code>.filter()</code>, <code>.sort()</code> and <code>.head()</code>. <em>Check yourself: Brookline, Newton, Cambridge, Somerville, Quincy.</em></li>\n</ol>\n<span class=\"paragraph\"><strong>Going further.</strong> Ask the towns a question of your own that needs <code>.filter()</code>, <code>.group_by()</code> and <code>.sort()</code> together.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "pHFh",
+      "code_hash": "ff04f4a76a076200c5a36107e2047066",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='pHFh-0' random-id='153c0472-e480-11b5-bc2d-e76d8874b421'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;county&#92;&quot;:&#92;&quot;Worcester&#92;&quot;,&#92;&quot;towns&#92;&quot;:60},{&#92;&quot;county&#92;&quot;:&#92;&quot;Middlesex&#92;&quot;,&#92;&quot;towns&#92;&quot;:54},{&#92;&quot;county&#92;&quot;:&#92;&quot;Essex&#92;&quot;,&#92;&quot;towns&#92;&quot;:34},{&#92;&quot;county&#92;&quot;:&#92;&quot;Berkshire&#92;&quot;,&#92;&quot;towns&#92;&quot;:32},{&#92;&quot;county&#92;&quot;:&#92;&quot;Norfolk&#92;&quot;,&#92;&quot;towns&#92;&quot;:28},{&#92;&quot;county&#92;&quot;:&#92;&quot;Plymouth&#92;&quot;,&#92;&quot;towns&#92;&quot;:27},{&#92;&quot;county&#92;&quot;:&#92;&quot;Franklin&#92;&quot;,&#92;&quot;towns&#92;&quot;:26},{&#92;&quot;county&#92;&quot;:&#92;&quot;Hampden&#92;&quot;,&#92;&quot;towns&#92;&quot;:23},{&#92;&quot;county&#92;&quot;:&#92;&quot;Bristol&#92;&quot;,&#92;&quot;towns&#92;&quot;:20},{&#92;&quot;county&#92;&quot;:&#92;&quot;Hampshire&#92;&quot;,&#92;&quot;towns&#92;&quot;:20}]&quot;' data-total-rows='14' data-total-columns='2' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;county&quot;,[&quot;string&quot;,&quot;str&quot;]],[&quot;towns&quot;,[&quot;integer&quot;,&quot;u32&quot;]]]' data-show-filters='true' data-show-download='true' data-show-search='true' data-show-column-summaries='true' data-show-data-types='true' data-show-page-size-selector='true' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[]' data-hidden-columns='[]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "NCOB",
+      "code_hash": "a8084e809c833885050da3d742fb3974",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='NCOB-0' random-id='73293736-f961-852f-36ef-ebd68301f010'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;name&#92;&quot;:&#92;&quot;Barnstable&#92;&quot;,&#92;&quot;towns&#92;&quot;:15,&#92;&quot;population&#92;&quot;:232570},{&#92;&quot;name&#92;&quot;:&#92;&quot;Berkshire&#92;&quot;,&#92;&quot;towns&#92;&quot;:32,&#92;&quot;population&#92;&quot;:128726},{&#92;&quot;name&#92;&quot;:&#92;&quot;Bristol&#92;&quot;,&#92;&quot;towns&#92;&quot;:20,&#92;&quot;population&#92;&quot;:588593},{&#92;&quot;name&#92;&quot;:&#92;&quot;Dukes&#92;&quot;,&#92;&quot;towns&#92;&quot;:7,&#92;&quot;population&#92;&quot;:21061},{&#92;&quot;name&#92;&quot;:&#92;&quot;Essex&#92;&quot;,&#92;&quot;towns&#92;&quot;:34,&#92;&quot;population&#92;&quot;:823938},{&#92;&quot;name&#92;&quot;:&#92;&quot;Franklin&#92;&quot;,&#92;&quot;towns&#92;&quot;:26,&#92;&quot;population&#92;&quot;:70871},{&#92;&quot;name&#92;&quot;:&#92;&quot;Hampden&#92;&quot;,&#92;&quot;towns&#92;&quot;:23,&#92;&quot;population&#92;&quot;:464151},{&#92;&quot;name&#92;&quot;:&#92;&quot;Hampshire&#92;&quot;,&#92;&quot;towns&#92;&quot;:20,&#92;&quot;population&#92;&quot;:165399},{&#92;&quot;name&#92;&quot;:&#92;&quot;Middlesex&#92;&quot;,&#92;&quot;towns&#92;&quot;:54,&#92;&quot;population&#92;&quot;:1668956},{&#92;&quot;name&#92;&quot;:&#92;&quot;Nantucket&#92;&quot;,&#92;&quot;towns&#92;&quot;:1,&#92;&quot;population&#92;&quot;:14670}]&quot;' data-total-rows='14' data-total-columns='3' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;name&quot;,[&quot;string&quot;,&quot;str&quot;]],[&quot;towns&quot;,[&quot;integer&quot;,&quot;i64&quot;]],[&quot;population&quot;,[&quot;integer&quot;,&quot;i64&quot;]]]' data-show-filters='true' data-show-download='true' data-show-search='true' data-show-column-summaries='true' data-show-data-types='true' data-show-page-size-selector='true' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[]' data-hidden-columns='[]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "aqbW",
+      "code_hash": "71132aca3a60c0a70414c125b31828fd",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='aqbW-0' random-id='16cc22fd-97d7-ebf5-802e-52638750732e'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;name&#92;&quot;:&#92;&quot;Brookline&#92;&quot;,&#92;&quot;county&#92;&quot;:&#92;&quot;Norfolk&#92;&quot;,&#92;&quot;population&#92;&quot;:63925,&#92;&quot;income_per_capita_dollars&#92;&quot;:100201,&#92;&quot;average_single_family_value_dollars&#92;&quot;:2562186,&#92;&quot;average_single_family_bill_dollars&#92;&quot;:26237},{&#92;&quot;name&#92;&quot;:&#92;&quot;Newton&#92;&quot;,&#92;&quot;county&#92;&quot;:&#92;&quot;Middlesex&#92;&quot;,&#92;&quot;population&#92;&quot;:90700,&#92;&quot;income_per_capita_dollars&#92;&quot;:167243,&#92;&quot;average_single_family_value_dollars&#92;&quot;:1762337,&#92;&quot;average_single_family_bill_dollars&#92;&quot;:17077},{&#92;&quot;name&#92;&quot;:&#92;&quot;Cambridge&#92;&quot;,&#92;&quot;county&#92;&quot;:&#92;&quot;Middlesex&#92;&quot;,&#92;&quot;population&#92;&quot;:121186,&#92;&quot;income_per_capita_dollars&#92;&quot;:78192,&#92;&quot;average_single_family_value_dollars&#92;&quot;:2111886,&#92;&quot;average_single_family_bill_dollars&#92;&quot;:14678},{&#92;&quot;name&#92;&quot;:&#92;&quot;Somerville&#92;&quot;,&#92;&quot;county&#92;&quot;:&#92;&quot;Middlesex&#92;&quot;,&#92;&quot;population&#92;&quot;:82149,&#92;&quot;income_per_capita_dollars&#92;&quot;:61870,&#92;&quot;average_single_family_value_dollars&#92;&quot;:853939,&#92;&quot;average_single_family_bill_dollars&#92;&quot;:9376},{&#92;&quot;name&#92;&quot;:&#92;&quot;Quincy&#92;&quot;,&#92;&quot;county&#92;&quot;:&#92;&quot;Norfolk&#92;&quot;,&#92;&quot;population&#92;&quot;:103434,&#92;&quot;income_per_capita_dollars&#92;&quot;:48421,&#92;&quot;average_single_family_value_dollars&#92;&quot;:700324,&#92;&quot;average_single_family_bill_dollars&#92;&quot;:8250}]&quot;' data-total-rows='5' data-total-columns='6' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='false' data-page-size='10' data-field-types='[[&quot;name&quot;,[&quot;string&quot;,&quot;str&quot;]],[&quot;county&quot;,[&quot;string&quot;,&quot;str&quot;]],[&quot;population&quot;,[&quot;integer&quot;,&quot;i64&quot;]],[&quot;income_per_capita_dollars&quot;,[&quot;integer&quot;,&quot;i64&quot;]],[&quot;average_single_family_value_dollars&quot;,[&quot;integer&quot;,&quot;i64&quot;]],[&quot;average_single_family_bill_dollars&quot;,[&quot;integer&quot;,&quot;i64&quot;]]]' data-show-filters='true' data-show-download='true' data-show-search='true' data-show-column-summaries='false' data-show-data-types='true' data-show-page-size-selector='false' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[]' data-hidden-columns='[]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "TRpd",
+      "code_hash": "11aaeaffe112242a9cbbffb89659ab93",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"3-the-same-question-in-sql\">3. The Same Question in SQL</h1>\n<span class=\"paragraph\"><strong>This is SQL, a second language, asking A's question once more.</strong> SQL is how databases are asked questions, and from next week the course builds and queries a database. For now, read it; you will write SQL in the database sessions.</span>\n<span class=\"paragraph\">Behind a SQL cell is DuckDB, a database that runs inside the same Python as your notebook. The data stays in your DataFrames. When the cell runs, DuckDB looks up the name in the <code>FROM</code> line, here <code>town_table</code>, among the notebook's variables and reads that DataFrame as a table. Its answer comes back as a DataFrame too.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "TXez",
+      "code_hash": "14cecc1d96f5ccd42416d84f003f596e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='TXez-0' random-id='29bed5a4-9363-e1af-4733-4bbe4c2647c8'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;county&#92;&quot;:&#92;&quot;Dukes&#92;&quot;,&#92;&quot;towns&#92;&quot;:2},{&#92;&quot;county&#92;&quot;:&#92;&quot;Norfolk&#92;&quot;,&#92;&quot;towns&#92;&quot;:2},{&#92;&quot;county&#92;&quot;:&#92;&quot;Middlesex&#92;&quot;,&#92;&quot;towns&#92;&quot;:2},{&#92;&quot;county&#92;&quot;:&#92;&quot;Nantucket&#92;&quot;,&#92;&quot;towns&#92;&quot;:1}]&quot;' data-total-rows='4' data-total-columns='2' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;county&quot;,[&quot;string&quot;,&quot;str&quot;]],[&quot;towns&quot;,[&quot;integer&quot;,&quot;i64&quot;]]]' data-show-filters='true' data-show-download='true' data-show-search='true' data-show-column-summaries='false' data-show-data-types='true' data-show-page-size-selector='false' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[]' data-hidden-columns='[]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "dNNg",
+      "code_hash": "e4901566dea088abcd848af77c3065e4",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Read it top to bottom: <code>SELECT</code> names the columns of the answer, <code>FROM</code> the table, <code>WHERE</code> keeps some rows, <code>GROUP BY</code> makes one group per county, <code>COUNT(*)</code> counts each group, and <code>ORDER BY ... DESC</code> puts the largest first. Like the polars version, it describes what you want and leaves the how to the computer.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "yCnT",
+      "code_hash": "ebb70508c0cf72687684ca563c5cff73",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"c-raise-the-bar\">\u270f\ufe0f C \u00b7 Raise the Bar</h2>\n<span class=\"paragraph\">In the SQL cell, <code>1000000</code> is the bar a town's average home value has to reach. Before you change it to <code>2000000</code>, predict in a markdown cell under this question: which counties' counts can go down, and can any go up? Then make the same change in the polars cell that counts million-dollar towns, and run both. <em>Check yourself: both give Dukes, Middlesex and Norfolk 2 each and Nantucket 1, which is 7 towns.</em></span>\n<span class=\"paragraph\"><strong>Going further.</strong> Write a SQL query of your own on <code>town_table</code>, and check its answer in polars.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "wlCL",
+      "code_hash": "562529a084164bc32780e83d202a76b6",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">the countys count cant increase if the threshold was raised from 1mil to 2 mil. i would predict that it remains the same</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "kqZH",
+      "code_hash": "f9d57717adb6e564a63b5cc2e9328347",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"4-the-first-chart\">4. The First Chart</h1>\n<span class=\"paragraph\">Draw the share. <code>.plot.bar()</code> on a DataFrame draws one bar per row, with a library called <strong>altair</strong>. <code>alt.X()</code> and <code>alt.Y()</code> name each axis's column and give it a title a reader can understand, and <code>.properties(title=...)</code> states what the chart shows.</span>\n<ul>\n<li>Putting the county on <code>y</code> lays the bars on their side, so every county's name reads across. <code>sort=\"-x\"</code> puts the longest bar first.</li>\n<li><code>axis=alt.Axis(format=\"%\")</code> writes a share of <code>0.25</code> as 25%.</li>\n</ul>\n<span class=\"paragraph\">Wrap it in <code>mo.ui.altair_chart()</code>, which is how marimo shows an altair chart of any size.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "wAgl",
+      "code_hash": "a7a045188ff812dcfd591dc44c884e1b",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "rEll",
+      "code_hash": "6e2c2f8f64f621a76215aa662eb2e87d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><code>.plot.point()</code> and <code>.plot.line()</code> work the same way. matplotlib is another charting library, and you will meet it in other people's code; <a href=\"/handbooks/python/03-data/#29-a-chart-with-labeled-axes\">Python \u00a729</a> shows one chart in each.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "dGlV",
+      "code_hash": "9036d2c3b1e700b17481fe8d9640a47a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"d-a-chart-of-your-own\">\u270f\ufe0f D \u00b7 A Chart of Your Own</h2>\n<span class=\"paragraph\">Choose a question one chart can answer, from the data you saved for Mini Project 2 or from <code>town_table</code>. Draw it with titled axes, and a title that states what it shows.</span>\n<span class=\"paragraph\"><em>Check yourself: somebody who has not seen this notebook can say what each axis measures.</em></span>\n<span class=\"paragraph\"><strong>Going further.</strong> Color the bars or dots by a column with <code>color=</code>, and explain what the colors add.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "USrb",
+      "code_hash": "023fac39a177e4851034f9bfa82a5843",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "SdmI",
+      "code_hash": "ad24ed421c5b0af4a0fe94f0d9b28bd3",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"this-weeks-work\">\ud83d\ude80 This Week's Work</h1>\n<ol>\n<li><strong>What is due is listed under <em>Before next session</em> in the post-class notes.</strong> I post them on the session page after each class, with the sections we reached, and the checkpoint on Canvas lists the same items.</li>\n<li><strong><a href=\"/assignments/mini-project-2/\">Mini Project 2</a></strong>, due Sunday 10/25</li>\n</ol></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lgWD",
+      "code_hash": "d8862f074f20a51b92cd84ace1475881",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><strong>Self-check:</strong></span>\n<ul class=\"task-list\">\n<li class=\"task-list-item\"><input type=\"checkbox\" disabled/> I can save a list of records to a CSV file and read it back with the <code>csv</code> module</li>\n<li class=\"task-list-item\"><input type=\"checkbox\" disabled/> I can explain why every value the <code>csv</code> module reads is text until I convert it</li>\n<li class=\"task-list-item\"><input type=\"checkbox\" disabled/> I can read a CSV into a DataFrame and ask it its shape and its column types</li>\n<li class=\"task-list-item\"><input type=\"checkbox\" disabled/> I can filter, sort and group a DataFrame</li>\n<li class=\"task-list-item\"><input type=\"checkbox\" disabled/> I can read a short SQL query and explain what it asks</li>\n<li class=\"task-list-item\"><input type=\"checkbox\" disabled/> I can make one chart from a DataFrame and title its axes</li>\n</ul></span>"
+          }
+        }
+      ],
+      "console": []
+    }
+  ]
+}

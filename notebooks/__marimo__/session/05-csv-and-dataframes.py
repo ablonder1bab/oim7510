@@ -197,6 +197,67 @@ def _(mo):
     return
 
 
+@app.cell
+def _(towns_from_file):
+    million_dollar_town_count = 0
+    county_counts = {}
+
+    for town in towns_from_file:
+
+        value = int(town['average_single_family_value_dollars'])
+    
+        if value >= 1000000:
+            million_dollar_town_count += 1
+            county = town['county']
+        
+   
+            if county in county_counts:
+                county_counts[county] += 1
+            else:
+                county_counts[county] = 1
+
+    print(f"Total million-dollar towns: {million_dollar_town_count}")
+
+
+    max_county = None
+    max_count = 0
+    for county, count in county_counts.items():
+        if count > max_count:
+            max_count = count
+            max_county = county
+
+    print(f"County with the most: {max_county} with {max_count}")
+    return
+
+
+@app.cell
+def _(towns_from_file):
+    smallest_town = None
+    min_population = float('inf')
+
+    largest_town = None
+    max_population = float('-inf')
+
+    for town in towns_from_file:
+        # Convert population to integer (adjust keys for town name and population as needed)
+        population = int(town['population'])
+        town_name = town['town']
+    
+        # Track the smallest population seen so far
+        if population < min_population:
+            min_population = population
+            smallest_town = town_name
+        
+        # Track the largest population seen so far
+        if population > max_population:
+            max_population = population
+            largest_town = town_name
+
+    print(f"Fewest people: {smallest_town}, with {min_population} people")
+    print(f"Most people: {largest_town}, with {max_population} people")
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -317,6 +378,35 @@ def _(mo):
     return
 
 
+@app.cell
+def _(pl, town_table):
+    county_counts = (
+        town_table.group_by("county")
+        .agg(pl.len().alias("towns"))
+        .sort("towns", descending=True)
+    )
+    county_counts
+    return
+
+
+@app.cell
+def _(ma_counties, pl):
+    server_counties = pl.DataFrame(ma_counties)
+    server_counties
+    return
+
+
+@app.cell
+def _(pl, town_table):
+    (
+        town_table
+        .filter(pl.col("population") > 50_000)
+        .sort("average_single_family_bill_dollars", descending=True)
+        .head(5)
+    )
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -335,7 +425,7 @@ def _(mo, town_table):
         f"""
         SELECT county, COUNT(*) AS towns
         FROM town_table
-        WHERE average_single_family_value_dollars >= 1000000
+        WHERE average_single_family_value_dollars >= 2000000
         GROUP BY county
         ORDER BY towns DESC
         """
@@ -359,6 +449,14 @@ def _(mo):
     In the SQL cell, `1000000` is the bar a town's average home value has to reach. Before you change it to `2000000`, predict in a markdown cell under this question: which counties' counts can go down, and can any go up? Then make the same change in the polars cell that counts million-dollar towns, and run both. *Check yourself: both give Dukes, Middlesex and Norfolk 2 each and Nantucket 1, which is 7 towns.*
 
     **Going further.** Write a SQL query of your own on `town_table`, and check its answer in polars.
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    the countys count cant increase if the threshold was raised from 1mil to 2 mil. i would predict that it remains the same
     """)
     return
 
@@ -413,6 +511,18 @@ def _(mo):
 
     **Going further.** Color the bars or dots by a column with `color=`, and explain what the colors add.
     """)
+    return
+
+
+@app.cell
+def _(alt, mo, town_table):
+    income_vs_value_chart = mo.ui.altair_chart(
+        town_table.plot.point(
+            x=alt.X("income_per_capita_dollars", title="Income per capita (dollars)"),
+            y=alt.Y("average_single_family_value_dollars", title="Average single-family home value (dollars)"),
+        ).properties(title="Towns with higher income per person tend to have pricier homes")
+    )
+    income_vs_value_chart
     return
 
 
