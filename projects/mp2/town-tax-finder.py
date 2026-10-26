@@ -210,6 +210,14 @@ def _():
 
 
 @app.cell
+def _(affordable_towns):
+    ranked_by_rate = sorted(affordable_towns, key=lambda t: t["residential_rate"])
+    for rate_entry in ranked_by_rate:
+        print(f"{rate_entry['name']:<15} {rate_entry['residential_rate']:>10.2f} {rate_entry['average_bill']:>10,.0f}")
+    return
+
+
+@app.cell
 def _():
     ## 10. Time Spent
     return

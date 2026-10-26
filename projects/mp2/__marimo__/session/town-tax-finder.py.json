@@ -73,19 +73,40 @@
     {
       "id": "ATNw",
       "code_hash": null,
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
       "console": []
     },
     {
       "id": "IsIG",
-      "code_hash": null,
-      "outputs": [],
+      "code_hash": "39c393d2910c6c4f5e1db054800004cc",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "syntax",
+          "evalue": "line 1\n    this is the exact same check you already did in notebook 4 \u2014 compare the number of towns you collected against pagination[\"total\"] that the server itself reports.\n                                                               ^\nSyntaxError: invalid character '\u2014' (U+2014)\n",
+          "traceback": []
+        }
+      ],
       "console": []
     },
     {
       "id": "MclH",
-      "code_hash": null,
-      "outputs": [],
+      "code_hash": "a68cff28f3d9c4116fb6467434947b27",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -103,8 +124,15 @@
     },
     {
       "id": "CtMl",
-      "code_hash": null,
-      "outputs": [],
+      "code_hash": "0e879a346153380d7eb4a97cecff1212",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -135,8 +163,15 @@
     },
     {
       "id": "ljZv",
-      "code_hash": null,
-      "outputs": [],
+      "code_hash": "29de1c4baf69dc1baa9ff206ba1daae1",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -259,9 +294,36 @@
     },
     {
       "id": "ojFx",
-      "code_hash": null,
-      "outputs": [],
+      "code_hash": "7d2ac487c130dd4438609e334134afd0",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
       "console": []
+    },
+    {
+      "id": "xxlf",
+      "code_hash": "1159837b2f0584ad5bc2df5a87c44b7a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Dracut                9.67      5,737\nWaltham              10.32      5,189\nMarlborough          10.54      6,441\nLowell               11.35      5,844\nMalden               11.40      4,952\nAyer                 11.59      6,625\nBillerica            11.61      7,484\nShirley              12.39      6,490\nEverett              12.62      5,887\nTownsend             13.75      6,459\nPepperell            13.78      7,578\nAshby                15.76      6,225\n",
+          "mimetype": "text/plain"
+        }
+      ]
     },
     {
       "id": "pGId",
