@@ -6,6 +6,19 @@
   },
   "cells": [
     {
+      "id": "SiZW",
+      "code_hash": "8e41e132c0014809fc7c6d99010a66d6",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
       "id": "aJnP",
       "code_hash": "1454d7c9ab42306b829abeb699055fbc",
       "outputs": [
@@ -33,25 +46,50 @@
     },
     {
       "id": "PPmI",
-      "code_hash": null,
-      "outputs": [],
-      "console": []
-    },
-    {
-      "id": "yIWF",
-      "code_hash": "ae6867dbe35ea9c0e7c261856fc58154",
+      "code_hash": "4125d2c3e0705c48c6b61264c70d26d8",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">I will need to pull data from the state of MA that stays within the budget.\nI will need to get every town in middlesex county\nI will need only the towns where the average home value and average tax bill are within the budget of 708000\ni want to sort the remaining towns from cheapest to most expensive and give a recommendation for the buyer</span></span>"
+            "text/plain": ""
           }
         }
       ],
       "console": []
     },
     {
-      "id": "ADKH",
+      "id": "yIWF",
+      "code_hash": "ff3bd0cc443d02d9571ddd27acdf99cb",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">I will need to pull data from the state of MA that stays within the budget.\nI will need to get every town in middlesex county\nI will need only the towns where the average home value is within the budget\ni will need the average tax bill is under the limit\ni want to sort the remaining towns from cheapest to most expensive and give a recommendation for the buyer</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ATNw",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "IsIG",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "MclH",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "qBvW",
       "code_hash": "07dc02cefad834508ed06b2f226b33d7",
       "outputs": [
         {
@@ -64,15 +102,35 @@
       "console": []
     },
     {
-      "id": "MclH",
+      "id": "CtMl",
       "code_hash": null,
       "outputs": [],
       "console": []
     },
     {
-      "id": "CtMl",
-      "code_hash": null,
-      "outputs": [],
+      "id": "Ivne",
+      "code_hash": "9b21e90c22a9238d4d071eda861511a4",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "wEXa",
+      "code_hash": "403fb43e8787451101da2625d21df6ff",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[{\"name\": \"Malden\", \"average_value\": 434420, \"residential_rate\": \"text/plain+float:11.4\", \"average_bill\": 4952}, {\"name\": \"Waltham\", \"average_value\": 502825, \"residential_rate\": \"text/plain+float:10.32\", \"average_bill\": 5189}, {\"name\": \"Dracut\", \"average_value\": 593296, \"residential_rate\": \"text/plain+float:9.67\", \"average_bill\": 5737}, {\"name\": \"Lowell\", \"average_value\": 514854, \"residential_rate\": \"text/plain+float:11.35\", \"average_bill\": 5844}, {\"name\": \"Everett\", \"average_value\": 466504, \"residential_rate\": \"text/plain+float:12.62\", \"average_bill\": 5887}, {\"name\": \"Ashby\", \"average_value\": 394983, \"residential_rate\": \"text/plain+float:15.76\", \"average_bill\": 6225}, {\"name\": \"Marlborough\", \"average_value\": 611100, \"residential_rate\": \"text/plain+float:10.54\", \"average_bill\": 6441}, {\"name\": \"Townsend\", \"average_value\": 469723, \"residential_rate\": \"text/plain+float:13.75\", \"average_bill\": 6459}, {\"name\": \"Shirley\", \"average_value\": 523807, \"residential_rate\": \"text/plain+float:12.39\", \"average_bill\": 6490}, {\"name\": \"Ayer\", \"average_value\": 571644, \"residential_rate\": \"text/plain+float:11.59\", \"average_bill\": 6625}, {\"name\": \"Billerica\", \"average_value\": 644586, \"residential_rate\": \"text/plain+float:11.61\", \"average_bill\": 7484}, {\"name\": \"Pepperell\", \"average_value\": 549948, \"residential_rate\": \"text/plain+float:13.78\", \"average_bill\": 7578}]"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -82,21 +140,121 @@
       "console": []
     },
     {
+      "id": "VIRd",
+      "code_hash": "cbec8d3aedfa249685925bd16fde73fb",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Town               Avg Value   Tax Rate   Avg Bill\nMalden               434,420      11.40      4,952\nWaltham              502,825      10.32      5,189\nDracut               593,296       9.67      5,737\nLowell               514,854      11.35      5,844\nEverett              466,504      12.62      5,887\nAshby                394,983      15.76      6,225\nMarlborough          611,100      10.54      6,441\nTownsend             469,723      13.75      6,459\nShirley              523,807      12.39      6,490\nAyer                 571,644      11.59      6,625\nBillerica            644,586      11.61      7,484\nPepperell            549,948      13.78      7,578\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "rtIH",
+      "code_hash": "77e688304a779d642ca6883d75fe32ae",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "In Middlesex County, 12 towns have an average home within $700,000 and an average tax bill under $8,000 a year \u2014 the cheapest is Malden, at about $4,952 a year.\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
       "id": "DMqR",
-      "code_hash": null,
-      "outputs": [],
+      "code_hash": "9848a9f4ba676f12a182b425fa7557fc",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "NNuT",
+      "code_hash": "d6eaf61a0bb567a8097cbeb6938128d0",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[\"text/plain+float:4952.39\", 4952]"
+          }
+        }
+      ],
       "console": []
     },
     {
       "id": "rACZ",
-      "code_hash": null,
-      "outputs": [],
+      "code_hash": "32c1c5fbde4155da57a7120c885403db",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "YLte",
+      "code_hash": "e6ee2935ae7cec7368fddeaadf25e522",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">when working on question 5 the agent wrote for town in affordable _towns but i accept this because town was already the loop variable in section4 filtering cell. Took my a while to figure out but with the help of the agent we renamed it to entry instead</span></span>"
+          }
+        }
+      ],
       "console": []
     },
     {
       "id": "aMqe",
-      "code_hash": null,
-      "outputs": [],
+      "code_hash": "3b8fd51ce6bf508d30c99ea1d873b30f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "GPkg",
+      "code_hash": "b3e2b4d6ce5581407d704a4a3b1c2e4b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">get_all_towns_in_county: This function takes one input, a county name like 'Middlesex'. It returns a list of dictionaries, one per town in that county, covering every page of results from the API \u2014 not just the first 100 towns. The line I had to ask about was the while True: loop with its break condition \u2014 I wasn't sure why it needed to keep requesting more pages instead of asking once, until I realized a single request only returns up to 100 towns at a time, so the loop keeps going until every page has been collected.\"</span>\n<span class=\"paragraph\">get_town_history: This function takes two inputs: a town's dor_code and a specific year. It returns a single dictionary with that one town's figures for exactly that year, not a list. The line I had to ask about was reply.json()[\"years\"][0] \u2014 I wasn't sure why there was a [0] there since I'm passing the same year for both from_year and to_year. It's because the API always returns a list of years, even when that list only has one item in it, so [0] pulls that single year's record out.\"</span>\n<span class=\"paragraph\">For the change and prediction: I'd suggest switching county from \"Middlesex\" to a different county, like \"Norfolk\" \u2014 predict something like: \"I expect a different set of towns to appear on the list, since Norfolk's home values and tax bills are different from Middlesex's, and the cheapest town will likely be a different name entirely.\"</span></span>"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -107,8 +265,28 @@
     },
     {
       "id": "pGId",
-      "code_hash": null,
-      "outputs": [],
+      "code_hash": "4a7e5b72f33bb45a61b562155d113aab",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "uNnq",
+      "code_hash": "2855b7d106f43cf7779fd6fcb0c0e545",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">it took about 3 hours total</span></span>"
+          }
+        }
+      ],
       "console": []
     },
     {
