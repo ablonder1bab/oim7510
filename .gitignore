@@ -185,3 +185,4 @@ cython_debug/
 # marimo
 #  Auto-generated notebook session/layout cache. Not Source.
 __ marimo__/
+*.duckdb*
