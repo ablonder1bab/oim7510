@@ -1,0 +1,11 @@
+treatment_id,name,standard_minutes,price,cost
+1,Manual Therapy,30,65.0,20.0
+2,Therapeutic Exercise,30,60.0,15.0
+3,Ultrasound Therapy,15,40.0,10.0
+4,Gait Training,30,55.0,18.0
+5,Balance Training,30,55.0,18.0
+6,Electrical Stimulation,15,35.0,8.0
+7,Hot/Cold Pack Therapy,15,20.0,5.0
+8,Dry Needling,20,75.0,25.0
+9,Post-Surgical Rehab,45,90.0,30.0
+10,Sports Injury Rehab,45,85.0,28.0
